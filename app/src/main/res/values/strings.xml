@@ -1,0 +1,4 @@
+<resources>
+  <string name="app_name">SmartParking</string>
+  <string name="key_is_user_onboarded">is_user_onboarded</string>
+</resources>

@@ -1,0 +1,105 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'com.google.gms.google-services'
+
+android {
+  compileSdkVersion(Versions.COMPILE_SDK)
+  buildToolsVersion(Versions.buildToolVersion)
+
+  defaultConfig {
+    applicationId "com.example.smartparkingsystem"
+    minSdkVersion(Versions.MIN_SDK)
+    targetSdkVersion(Versions.TARGET_SDK)
+    versionCode = Versions.versioncCode
+    versionName = Versions.versionName
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  kotlinOptions {
+    jvmTarget = JavaVersion.VERSION_1_8
+  }
+
+  buildFeatures {
+    viewBinding = true
+    dataBinding = true
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: "libs", include: ["*.jar"])
+  implementation(Libs.KOTLIN_STDLIB)
+  implementation(Libs.CORE_KTX)
+  implementation(Libs.APP_COMPAT)
+  implementation(Libs.CONSTRAINT_LAYOUT)
+  implementation(Libs.LEGACY_SUPPORT)
+  implementation(Libs.LIFE_CYCLE_EXTENSION)
+  testImplementation(Libs.JUNIT)
+  androidTestImplementation(Libs.EXT_JUNIT)
+  androidTestImplementation(Libs.ESPRESSO_CORE)
+
+  // hilt dependency injection
+  implementation(Libs.HILT_ANDROID)
+  kapt(Libs.HILT_COMPILER)
+
+  // ViewModel
+  implementation(Libs.LIFE_CYCLE_VIEW_MODEL_KTX)
+  // LiveData
+  implementation(Libs.LIFE_CYCLE_LIVE_DATA_KTX)
+  // Lifecycles only (without ViewModel or LiveData)
+  implementation(Libs.LIFE_CYCLE_RUN_TIME_KTX)
+
+  // Saved state module for ViewModel
+  implementation(Libs.LIFE_CYCLE_VIEW_MODEL_SAVED_STATE)
+
+  // Annotation processor
+  kapt(Libs.LIFE_CYCLE_COMPILER)
+  // alternately - if using Java8, use the following instead of lifecycle-compiler
+  implementation(Libs.LIFE_CYCLE_COMMON_JAVA8)
+
+  // optional - helpers for implementing LifecycleOwner in a Service
+  implementation(Libs.LIFE_CYCLE_SERVICE)
+
+  // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+  implementation(Libs.LIFE_CYCLE_PROCESS)
+  implementation(Libs.LIFE_CYCLE_REACTIVE_STREAMS_KTX)
+
+  implementation(Libs.NAVIGATION_FRAGMENT_KTX)
+  implementation(Libs.NAVIGATION_UI_KTX)
+
+  implementation(Libs.ROOM_RUNTIME)
+  kapt(Libs.ROOM_COMPILER)
+  implementation(Libs.ROOM_KTX)
+
+  // hilt inject viewModel
+  implementation(Libs.HILT_LIFE_CYCLE_VIEW_MODEL)
+  kapt(Libs.HILT_LIFE_CYCLE_COMPILER)
+
+  implementation(Libs.FIREBASE_AUTH_KTX)
+  implementation(Libs.FIREBASE_DATABASE_KTX)
+  implementation(Libs.FIREBASE_UI_AUTH)
+  implementation(Libs.FIREBASE_FIRE_STORE_KTX)
+  implementation(Libs.PLAY_SERVICES_AUTH)
+
+  implementation(Libs.MATERIAL)
+  implementation(Libs.PREFERENCE_KTX)
+
+  implementation(Libs.REACTIVEX_RX_JAVA3)
+  implementation(Libs.REACTIVEX_RX_JAVA3_ANDROID)
+}
