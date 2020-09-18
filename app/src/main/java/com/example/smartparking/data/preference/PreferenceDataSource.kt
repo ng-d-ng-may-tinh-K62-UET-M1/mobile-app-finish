@@ -17,5 +17,5 @@ class PreferenceDataSource {
         preferences.edit().putBoolean(key, isUserOnBoarded).apply()
     }
 
-    private fun getIsUserOnboardedKey(context: Context) = context.getString(R.string.key_is_user_onboarded)
+    fun getIsUserOnboardedKey(context: Context) = context.getString(R.string.key_is_user_onboarded)
 }

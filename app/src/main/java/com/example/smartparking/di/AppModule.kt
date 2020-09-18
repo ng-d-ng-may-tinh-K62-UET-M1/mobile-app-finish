@@ -1,6 +1,7 @@
 package com.example.smartparking.di
 
 import android.content.Context
+import androidx.preference.PreferenceManager
 import com.example.smartparking.data.preference.PreferenceDataSource
 import com.example.smartparking.utils.AuthenticationManager
 import com.google.firebase.auth.FirebaseAuth
