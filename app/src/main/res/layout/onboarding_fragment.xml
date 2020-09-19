@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.onboarding.OnboardingFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.smartparking.ui.onboarding.OnboardingViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Login page" />
+        tools:context=".ui.onboarding.OnboardingFragment">
 
-</FrameLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonContinueWithGoogle"
+            style="@style/Widget.SmartParking.Button.Normal"
+            android:layout_width="wrap_content"
+            android:text="@string/continue_with_google"
+            android:backgroundTint="@android:color/white"
+            android:textColor="@color/text_primary_dark"
+            app:icon="@drawable/ic_google_colored_24dp"
+            android:onClick="@{() -> viewModel.signIn()}"
+            android:layout_marginBottom="@dimen/spacing_xxlarge"
+            app:iconSize="24dp"
+            app:iconTint="@null"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

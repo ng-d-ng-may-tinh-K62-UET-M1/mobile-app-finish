@@ -1,6 +1,7 @@
 package com.example.smartparking
 
+import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class Application : android.app.Application()
+class MainApplication : Application()

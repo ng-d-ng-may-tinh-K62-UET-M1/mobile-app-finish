@@ -1,5 +1,6 @@
 package com.example.smartparking.splash
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
@@ -16,15 +17,15 @@ class SplashActivity : AppCompatActivity() {
     @Inject
     lateinit var preferenceDataSource: PreferenceDataSource
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        Log.d("SplashActivity", "start")
-        if (preferenceDataSource.getIsUserOnboarded(this)) {
-            MainActivity.start(this)
+        if (isUserOnboarded()) {
+            startActivity(Intent(this, MainActivity::class.java))
         } else {
-            OnboardingActivity.start(this)
+            startActivity(Intent(this, OnboardingActivity::class.java))
         }
-        finish()
     }
+
+    private fun isUserOnboarded(): Boolean = preferenceDataSource.getIsUserOnboarded()
 }
