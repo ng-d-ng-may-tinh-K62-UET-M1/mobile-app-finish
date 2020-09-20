@@ -1,8 +1,12 @@
 package com.example.smartparking.di
 
 import android.content.Context
+import com.example.smartparking.R
 import com.example.smartparking.data.preference.PreferenceDataSource
-import com.example.smartparking.utils.AuthenticationManager
+import com.example.smartparking.utils.auth.AuthenticationManager
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
 import dagger.Provides
@@ -16,9 +20,6 @@ import javax.inject.Singleton
 object AppModule {
     @Singleton
     @Provides
-    fun providePreferenceDataSource(@ApplicationContext context: Context): PreferenceDataSource = PreferenceDataSource(context)
-
-    @Singleton
-    @Provides
-    fun provideAuthenticationManager(@ApplicationContext context: Context, firebaseAuth: FirebaseAuth) = AuthenticationManager(context, firebaseAuth)
+    fun providePreferenceDataSource(@ApplicationContext context: Context): PreferenceDataSource =
+        PreferenceDataSource(context)
 }
