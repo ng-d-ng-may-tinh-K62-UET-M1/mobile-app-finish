@@ -15,9 +15,13 @@ import com.example.smartparking.ui.MainActivity
 import com.example.smartparking.utils.auth.AuthenticationManager
 import com.example.smartparking.utils.livedata.EventObserver
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -27,10 +31,10 @@ class OnboardingActivity : AppCompatActivity() {
     private val viewModel: OnboardingViewModel by viewModels()
 
     @Inject
-    lateinit var preferenceDataSource: PreferenceDataSource
+    lateinit var auth: FirebaseAuth
 
     @Inject
-    lateinit var auth: FirebaseAuth
+    lateinit var preferenceDataSource: PreferenceDataSource
 
     @Inject
     lateinit var authenticationManager: AuthenticationManager
@@ -41,10 +45,14 @@ class OnboardingActivity : AppCompatActivity() {
         binding.viewModel = viewModel
     }
 
+
     override fun onStart() {
         super.onStart()
         viewModel.performSignInEvent.observe(this, EventObserver {
-            if (it) signIn()
+            if (it) {
+                binding.buttonContinueWithGoogle.visibility = View.GONE
+                signIn()
+            }
         })
     }
 
@@ -74,6 +82,7 @@ class OnboardingActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     preferenceDataSource.setIsUserOnboarded(true)
                     startActivity(Intent(this, MainActivity::class.java))
+                    finish()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)

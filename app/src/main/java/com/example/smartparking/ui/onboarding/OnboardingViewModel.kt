@@ -13,5 +13,6 @@ class OnboardingViewModel @ViewModelInject constructor() : ViewModel() {
 
     fun signIn() {
         _performSignInEvent.postValue(Event(true))
+        println()
     }
 }

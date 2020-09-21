@@ -30,4 +30,7 @@ class AuthenticationManager @Inject constructor(
         return googleSignInClient.signInIntent
     }
 
+    fun signOut() {
+        firebaseAuth.signOut()
+    }
 }
