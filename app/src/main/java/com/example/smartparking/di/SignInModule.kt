@@ -17,6 +17,7 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 @Module
 object SignInModule {
+    @Singleton
     @Provides
     fun provideGoogleSignInOptions(@ApplicationContext context: Context) =
         GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -24,12 +25,14 @@ object SignInModule {
             .requestEmail()
             .build()
 
+    @Singleton
     @Provides
     fun provideGoogleSignInClient(
         @ApplicationContext context: Context,
         googleSignInOptions: GoogleSignInOptions
     ) = GoogleSignIn.getClient(context, googleSignInOptions)
 
+    @Singleton
     @Provides
     fun provideAuthenticationManager(
         firebaseAuth: FirebaseAuth,

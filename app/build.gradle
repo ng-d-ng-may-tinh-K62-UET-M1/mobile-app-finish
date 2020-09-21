@@ -102,4 +102,7 @@ dependencies {
 
   implementation(Libs.REACTIVEX_RX_JAVA3)
   implementation(Libs.REACTIVEX_RX_JAVA3_ANDROID)
+
+  implementation(Libs.GLIDE)
+  implementation(Libs.GLIDE_COMPILER)
 }

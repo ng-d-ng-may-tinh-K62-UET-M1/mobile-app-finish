@@ -47,4 +47,7 @@ object Libs {
     const val REACTIVEX_RX_JAVA3 = "io.reactivex.rxjava3:rxjava:${LibsVersion.RX_JAVA3}"
 
     const val REACTIVEX_RX_JAVA3_ANDROID = "io.reactivex.rxjava3:rxandroid:${LibsVersion.RX_JAVA3}"
+
+    const val GLIDE = "com.github.bumptech.glide:glide:${LibsVersion.GLIDE}"
+    const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${LibsVersion.GLIDE_COMPILER}"
 }

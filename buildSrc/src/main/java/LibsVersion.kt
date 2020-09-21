@@ -35,4 +35,6 @@ object LibsVersion {
     const val TIMBER = "4.7.1"
     const val PREFERENCE_KTX = "1.1.1"
     const val RX_JAVA3 = "3.0.0"
+    const val GLIDE = "4.11.0"
+    const val GLIDE_COMPILER = "4.11.0"
 }
