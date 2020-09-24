@@ -1,6 +1,8 @@
 package com.example.smartparking.di
 
+import com.example.smartparking.utils.COLLECTION_USERS
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import dagger.Module

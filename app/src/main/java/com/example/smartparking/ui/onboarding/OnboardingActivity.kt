@@ -67,7 +67,6 @@ class OnboardingActivity : AppCompatActivity() {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account = task.getResult(ApiException::class.java)!!
-                Log.d(TAG, "FirebaseAuthWithGoogle: " + account.id)
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
                 throw e
@@ -81,6 +80,7 @@ class OnboardingActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     preferenceDataSource.setIsUserOnboarded(true)
+                    viewModel.createFirebaseUser(auth.currentUser?.uid, auth.currentUser?.displayName, auth.currentUser?.email)
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 } else {
