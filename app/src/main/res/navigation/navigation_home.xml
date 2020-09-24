@@ -10,4 +10,12 @@
         android:name="com.example.smartparking.ui.home.HomeFragment"
         android:label="home_fragment"
         tools:layout="@layout/home_fragment" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.smartparking.ui.account.AccountFragment"
+        android:label="AccountFragment" />
+    <fragment
+        android:id="@+id/myParkingFragment"
+        android:name="com.example.smartparking.ui.myparking.MyParkingFragment"
+        android:label="MyParkingFragment" />
 </navigation>

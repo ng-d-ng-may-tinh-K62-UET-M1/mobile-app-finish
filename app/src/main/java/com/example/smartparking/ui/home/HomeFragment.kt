@@ -31,9 +31,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = HomeFragmentBinding.inflate(inflater, container, false)
-        binding.viewModel = viewModel
-        binding.test.text = authenticationManager.getCurrentUserName()
-        binding.test2.text = authenticationManager.getCurrentUserEmail()
         return binding.root
     }
 

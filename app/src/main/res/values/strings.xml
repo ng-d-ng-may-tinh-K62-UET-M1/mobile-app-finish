@@ -2,4 +2,10 @@
   <string name="app_name">SmartParking</string>
   <string name="key_is_user_onboarded">is_user_onboarded</string>
   <string name="continue_with_google">Continue with Google</string>
+
+  <!--  Navigation bar string-->
+  <string name="navigation_bar_home">Home</string>
+  <string name="navigation_bar_my_parking">My Parking</string>
+  <string name="navigation_bar_account">Account</string>
+
 </resources>
