@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BaseHeader">
+        <attr name="leftIcon" format="reference" />
+        <attr name="rightIcon" format="reference" />
+        <attr name="headerTitle" format="string|reference" />
+        <attr name="hasBottomBorder" format="boolean" />
+        <attr name="bottomBorderColor" format="reference" />
+        <attr name="hasRoundCorner" format="boolean" />
+        <attr name="headerBackgroundColor" format="color" />
+        <attr name="headerTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CommonHeader">
+        <attr name="leftIcon" />
+        <attr name="rightIcon" />
+        <attr name="headerTitle" />
+        <attr name="hasBottomBorder" />
+        <attr name="hasRoundCorner" />
+        <attr name="headerBackgroundColor" />
+        <attr name="headerTextColor" />
+    </declare-styleable>
+</resources>

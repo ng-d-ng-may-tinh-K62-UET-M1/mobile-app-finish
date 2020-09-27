@@ -7,21 +7,17 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import com.example.smartparking.R
+import com.example.smartparking.data.model.User
 import com.example.smartparking.data.preference.PreferenceDataSource
 import com.example.smartparking.databinding.ActivityOnboardingBinding
 import com.example.smartparking.ui.MainActivity
 import com.example.smartparking.utils.auth.AuthenticationManager
 import com.example.smartparking.utils.livedata.EventObserver
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -80,11 +76,12 @@ class OnboardingActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     preferenceDataSource.setIsUserOnboarded(true)
-                    viewModel.createFirebaseUser(auth.currentUser?.uid, auth.currentUser?.displayName, auth.currentUser?.email)
+                    if (task.result?.additionalUserInfo?.isNewUser!!) {
+                        auth.currentUser?.let { viewModel.createFirebaseUser(User.createFromFirebaseAuth(it)) }
+                    }
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                 }
             }

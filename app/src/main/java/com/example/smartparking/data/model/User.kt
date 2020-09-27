@@ -1,17 +1,22 @@
 package com.example.smartparking.data.model
 
-data class User(
-    val uid: String?,
-    val name: String?,
-    val email: String?
-) {
-    companion object {
-        fun fromHashMap(map: Map<String, String>) : User {
-            val name by map
-            val email by map
+import android.os.Parcelable
+import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.parcel.Parcelize
 
-            val data = User(null, name, email)
-            return data
+@Parcelize
+data class User(
+    var uid: String? = null,
+    var name: String? = null,
+    var email: String? = null
+) : Parcelable {
+    companion object {
+        fun createFromFirebaseAuth(auth: FirebaseUser): User {
+            return User(
+                uid = auth.uid,
+                name = auth.displayName,
+                email = auth.email
+            )
         }
     }
 }

@@ -108,4 +108,6 @@ dependencies {
 
   implementation(Libs.GLIDE)
   implementation(Libs.GLIDE_COMPILER)
+
+  implementation(Libs.COORDINATOR_LAYOUT)
 }

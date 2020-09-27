@@ -8,4 +8,6 @@
   <string name="navigation_bar_my_parking">My Parking</string>
   <string name="navigation_bar_account">Account</string>
 
+  <string name="common_close">Close</string>
+
 </resources>

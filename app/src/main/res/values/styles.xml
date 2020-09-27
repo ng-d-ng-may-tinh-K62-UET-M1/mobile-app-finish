@@ -1,10 +1,11 @@
-<resources>
+<resources>67ebff
   <!-- Base application theme. -->
   <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
     <!-- Customize your theme here. -->
     <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorOnPrimary">@color/ui_light</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    <item name="colorAccent">@color/colorAccent</item>
+<!--    <item name="colorAccent">@color/colorAccent</item>-->
   </style>
 
   <style name="Widget.SmartParking.Button.Normal" parent="Widget.MaterialComponents.Button">
@@ -25,6 +26,12 @@
     <item name="android:insetBottom">0dp</item>
     <item name="android:insetLeft">0dp</item>
     <item name="android:insetRight">0dp</item>
+  </style>
+
+  <style name="TitleBold">
+    <item name="android:textSize">@dimen/text_size_title</item>
+    <item name="android:fontFamily">@font/roboto_medium_font</item>
+    <item name="android:textStyle">bold</item>
   </style>
 
 

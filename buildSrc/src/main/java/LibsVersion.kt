@@ -37,4 +37,5 @@ object LibsVersion {
     const val RX_JAVA3 = "3.0.0"
     const val GLIDE = "4.11.0"
     const val GLIDE_COMPILER = "4.11.0"
+    const val COORDINATOR_LAYOUT = "1.1.0"
 }

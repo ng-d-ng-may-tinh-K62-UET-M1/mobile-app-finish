@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="colorPrimary">#6200EE</color>
+  <color name="colorPrimary">#0064ff</color>
   <color name="colorPrimaryDark">#3700B3</color>
   <color name="colorAccent">#03DAC5</color>
 
@@ -14,4 +14,9 @@
   <color name="text_secondary_light">#B3FFFFFF</color> <!-- 70% - Secondary text -->
   <color name="text_disabled_light">#B3FFFFFF</color>  <!-- 50% - Disabled text, hint text, and icons -->
   <color name="divider_light">#1FFFFFFF</color>
+
+  <color name="ui_light">#ffffff</color>
+  <color name="ui_dark">#333333</color>
+  <color name="ui_blue">#0064ff</color>
+  <color name="ui_border">#e0e0e0</color>
 </resources>

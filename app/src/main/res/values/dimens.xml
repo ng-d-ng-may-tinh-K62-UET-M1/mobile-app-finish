@@ -6,4 +6,31 @@
     <dimen name="spacing_large">16dp</dimen>
     <dimen name="spacing_xlarge">24dp</dimen>
     <dimen name="spacing_xxlarge">48dp</dimen>
+
+    <dimen name="header_height">56dp</dimen>
+    <dimen name="line_height">1dp</dimen>
+
+    <dimen name="icon_size_ultra_large">40dp</dimen>
+    <dimen name="icon_size_super_large">36dp</dimen>
+    <dimen name="icon_size_large">32dp</dimen>
+    <dimen name="icon_size_extra_large">48dp</dimen>
+    <dimen name="icon_size_default">24dp</dimen>
+    <dimen name="icon_size_medium_larger">18dp</dimen>
+    <dimen name="icon_size_medium">16dp</dimen>
+    <dimen name="icon_size_quite_small">12dp</dimen>
+    <dimen name="icon_size_small">8dp</dimen>
+
+    <dimen name="margin_padding_2">2dp</dimen>
+    <dimen name="margin_padding_4">4dp</dimen>
+    <dimen name="margin_padding_6">6dp</dimen>
+    <dimen name="margin_padding_8">8dp</dimen>
+    <dimen name="margin_padding_10">10dp</dimen>
+    <dimen name="margin_padding_12">12dp</dimen>
+    <dimen name="margin_padding_14">14dp</dimen>
+    <dimen name="margin_padding_16">16dp</dimen>
+    <dimen name="margin_padding_18">18dp</dimen>
+    <dimen name="margin_padding_20">20dp</dimen>
+    <dimen name="margin_padding_22">22dp</dimen>
+
+    <dimen name="text_size_title">16sp</dimen>
 </resources>

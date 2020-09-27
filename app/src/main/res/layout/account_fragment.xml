@@ -2,15 +2,32 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <FrameLayout
+    <data>
+        <variable
+            name="accountViewModel"
+            type="com.example.smartparking.ui.account.AccountViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.smartparking.ui.account.AccountFragment">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Account Fragment" />
+            android:id="@+id/text111"
+            tools:text="Hello World"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{accountViewModel.account.name}"
+            />
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/text222"
+            tools:text="Hello World"
+            android:text="@{accountViewModel.account.email}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 </layout>

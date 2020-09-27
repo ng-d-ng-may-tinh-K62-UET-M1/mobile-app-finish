@@ -50,4 +50,6 @@ object Libs {
 
     const val GLIDE = "com.github.bumptech.glide:glide:${LibsVersion.GLIDE}"
     const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${LibsVersion.GLIDE_COMPILER}"
+
+    const val COORDINATOR_LAYOUT = "androidx.coordinatorlayout:coordinatorlayout:${LibsVersion.COORDINATOR_LAYOUT}"
 }

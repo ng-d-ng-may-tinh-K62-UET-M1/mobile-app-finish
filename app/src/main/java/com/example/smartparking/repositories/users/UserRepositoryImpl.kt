@@ -1,20 +1,38 @@
 package com.example.smartparking.repositories.users
 
 import com.example.smartparking.data.model.User
-import com.example.smartparking.firestore.user.FireStoreUser
-import com.example.smartparking.utils.LoadState
+import com.example.smartparking.utils.COLLECTION_USERS
+import com.example.smartparking.utils.Resource
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
-    private val fireStoreUser: FireStoreUser
+    private val firestore: FirebaseFirestore
 ) : UserRepository {
-    override suspend fun getUser(uid: String): Flow<LoadState<User>> = fireStoreUser.getUser(uid)
+    @ExperimentalCoroutinesApi
+    override fun getUser(uid: String): Flow<Resource<User?>> = callbackFlow {
+        offer(Resource.loading())
+        firestore.collection(COLLECTION_USERS).document(uid).addSnapshotListener { snapshot, e ->
+            if (snapshot != null && snapshot.exists()) {
+                offer(Resource.success(snapshot.toObject(User::class.java)))
+            }
+        }
+        awaitClose { cancel() }
+    }
 
     override suspend fun addNewUser(
-        uid: String,
-        displayName: String,
-        email: String
-    ): Flow<LoadState<User>> = fireStoreUser.addNewUser(uid, displayName, email)
+        user: User
+    ) {
+        user.uid?.let {
+            firestore.collection(COLLECTION_USERS).document(it).set(user)
+                .addOnCompleteListener {}
+                .addOnFailureListener { e -> throw e }
+        }
+    }
 
 }

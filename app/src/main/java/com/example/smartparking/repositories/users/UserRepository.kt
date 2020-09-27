@@ -1,10 +1,10 @@
 package com.example.smartparking.repositories.users
 
 import com.example.smartparking.data.model.User
-import com.example.smartparking.utils.LoadState
+import com.example.smartparking.utils.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface UserRepository {
-    suspend fun getUser(uid: String): Flow<LoadState<User>>
-    suspend fun addNewUser(uid: String, displayName: String, email: String): Flow<LoadState<User>>
+    fun getUser(uid: String): Flow<Resource<User?>>
+    suspend fun addNewUser(user: User)
 }
