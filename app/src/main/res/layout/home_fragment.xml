@@ -8,17 +8,14 @@
             name="viewModel"
             type="com.example.smartparking.ui.home.HomeViewModel" />
     </data>
-
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.home.HomeFragment">
-
-        <TextView
-            android:id="@+id/test"
+        android:layout_height="match_parent">
+        <fragment
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Home page" />
-
+            android:id="@+id/map"
+            tools:context=".MapsActivity"
+            android:name="com.google.android.gms.maps.SupportMapFragment" />
     </FrameLayout>
 </layout>

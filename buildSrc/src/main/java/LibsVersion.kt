@@ -38,4 +38,7 @@ object LibsVersion {
     const val GLIDE = "4.11.0"
     const val GLIDE_COMPILER = "4.11.0"
     const val COORDINATOR_LAYOUT = "1.1.0"
+    const val PLAY_SERVICES_LOCATION = "17.1.0"
+    const val PLAY_SERVICES_PLACES = "17.0.0"
+    const val EPOXY = "4.1.0"
 }

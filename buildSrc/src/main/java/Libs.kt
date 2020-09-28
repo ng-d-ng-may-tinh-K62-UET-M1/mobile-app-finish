@@ -52,4 +52,10 @@ object Libs {
     const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${LibsVersion.GLIDE_COMPILER}"
 
     const val COORDINATOR_LAYOUT = "androidx.coordinatorlayout:coordinatorlayout:${LibsVersion.COORDINATOR_LAYOUT}"
+
+    const val PLAY_SERVICES_LOCATION = "com.google.android.gms:play-services-location:${LibsVersion.PLAY_SERVICES_LOCATION}"
+    const val PLAY_SERVICES_PLACES = "com.google.android.gms:play-services-places:${LibsVersion.PLAY_SERVICES_PLACES}"
+    const val EPOXY = "com.airbnb.android:epoxy:${LibsVersion.EPOXY}"
+    const val EPOXY_PROCESSOR = "com.airbnb.android:epoxy-processor:${LibsVersion.EPOXY}"
+    const val EPOXY_DATABINDING = "com.airbnb.android:epoxy-databinding:${LibsVersion.EPOXY}"
 }

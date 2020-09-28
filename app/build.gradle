@@ -110,4 +110,11 @@ dependencies {
   implementation(Libs.GLIDE_COMPILER)
 
   implementation(Libs.COORDINATOR_LAYOUT)
+
+  implementation(Libs.PLAY_SERVICES_LOCATION)
+  implementation(Libs.PLAY_SERVICES_PLACES)
+
+  implementation(Libs.EPOXY)
+  annotationProcessor(Libs.EPOXY_PROCESSOR)
+  implementation(Libs.EPOXY_DATABINDING)
 }

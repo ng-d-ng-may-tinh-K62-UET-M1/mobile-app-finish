@@ -33,4 +33,6 @@
     <dimen name="margin_padding_22">22dp</dimen>
 
     <dimen name="text_size_title">16sp</dimen>
+
+    <dimen name="radius_default">8dp</dimen>
 </resources>

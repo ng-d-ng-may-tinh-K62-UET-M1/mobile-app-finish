@@ -1,33 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="accountViewModel"
             type="com.example.smartparking.ui.account.AccountViewModel" />
     </data>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context="com.example.smartparking.ui.account.AccountFragment">
+
+        <com.example.smartparking.utils.uiwidget.CommonHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:headerTitle="@string/header_account"/>
 
         <TextView
             android:id="@+id/text111"
-            tools:text="Hello World"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{accountViewModel.account.name}"
-            />
+            tools:text="Hello World" />
 
         <TextView
             android:id="@+id/text222"
-            tools:text="Hello World"
-            android:text="@{accountViewModel.account.email}"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="@{accountViewModel.account.email}"
+            tools:text="Hello World" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> accountViewModel.signOut()}"
+            android:text="Sign Out" />
 
     </LinearLayout>
 </layout>
