@@ -13,4 +13,11 @@
 
   <string name="header_account">Account</string>
 
+  <string name="account_sign_in_as">you are signed in as</string>
+  <string name="account_sign_out">sign out</string>
+
+  <string name="account_menu_item_profile">MY PROFILE</string>
+  <string name="account_menu_item_payment_method">PAYMENT METHOD</string>
+  <string name="account_menu_item_vehicle">MY VEHICLE</string>
+
 </resources>

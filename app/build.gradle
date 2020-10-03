@@ -16,6 +16,7 @@ android {
     targetSdkVersion(Versions.TARGET_SDK)
     versionCode = Versions.versioncCode
     versionName = Versions.versionName
+    vectorDrawables.useSupportLibrary = true
 
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -115,6 +116,6 @@ dependencies {
   implementation(Libs.PLAY_SERVICES_PLACES)
 
   implementation(Libs.EPOXY)
-  annotationProcessor(Libs.EPOXY_PROCESSOR)
+  kapt(Libs.EPOXY_PROCESSOR)
   implementation(Libs.EPOXY_DATABINDING)
 }

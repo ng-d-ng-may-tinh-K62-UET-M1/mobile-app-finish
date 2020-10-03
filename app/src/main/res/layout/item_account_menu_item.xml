@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="menuItem"
+            type="com.example.smartparking.ui.account.models.AccountMenuModelGroup.AccountMenuItem" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginBottom="@dimen/margin_padding_6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ui_light"
+        android:onClick="@{clickListener}"
+        android:paddingVertical="@dimen/margin_padding_14"
+        android:paddingStart="@dimen/margin_padding_25">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icMenuIcon"
+            android:layout_width="@dimen/icon_size_20"
+            android:layout_height="@dimen/icon_size_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@{menuItem.icon}"
+            tools:srcCompat="@drawable/ic_google_colored_24dp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvMenuName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_25"
+            android:text="@{menuItem.name}"
+            android:theme="@style/BodyText13Bold"
+            app:layout_constraintBottom_toBottomOf="@id/icMenuIcon"
+            app:layout_constraintStart_toEndOf="@+id/icMenuIcon"
+            app:layout_constraintTop_toTopOf="@+id/icMenuIcon"
+            tools:text="GOOGLE" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

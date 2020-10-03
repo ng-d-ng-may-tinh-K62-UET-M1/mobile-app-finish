@@ -5,21 +5,20 @@ import androidx.databinding.ViewDataBinding
 import com.airbnb.epoxy.DataBindingEpoxyModel
 import com.airbnb.epoxy.EpoxyAttribute
 import com.airbnb.epoxy.EpoxyModelClass
-import com.example.smartparking.BR
+import com.airbnb.epoxy.databinding.BR
 import com.example.smartparking.R
-import com.example.smartparking.data.model.User
 
-@EpoxyModelClass(layout = R.layout.item_account_logged_in)
-abstract class LoggedInItemModel : DataBindingEpoxyModel() {
+@EpoxyModelClass(layout = R.layout.item_account_menu_item)
+abstract class AccountMenuItemModel : DataBindingEpoxyModel() {
     @EpoxyAttribute
-    lateinit var user: User
+    lateinit var menuItem: AccountMenuModelGroup.AccountMenuItem
 
     @EpoxyAttribute
     var clickListener: View.OnClickListener? = null
 
     override fun setDataBindingVariables(binding: ViewDataBinding?) {
         binding?.let {
-            it.setVariable(BR.user, user)
+            it.setVariable(BR.menuItem, menuItem)
             it.setVariable(BR.clickListener, clickListener)
         }
     }

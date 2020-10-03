@@ -12,8 +12,8 @@
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/icLeftIcon"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="@dimen/icon_size_ultra_large"
-            android:layout_height="@dimen/icon_size_ultra_large"
+            android:layout_width="@dimen/icon_size_40"
+            android:layout_height="@dimen/icon_size_40"
             android:background="?selectableItemBackgroundBorderless"
             android:contentDescription="@string/common_close"
             android:padding="@dimen/margin_padding_8"
@@ -38,8 +38,8 @@
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/icRightIcon"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="@dimen/icon_size_ultra_large"
-            android:layout_height="@dimen/icon_size_ultra_large"
+            android:layout_width="@dimen/icon_size_40"
+            android:layout_height="@dimen/icon_size_40"
             android:layout_marginEnd="@dimen/margin_padding_8"
             android:padding="@dimen/margin_padding_8"
             android:background="?selectableItemBackgroundBorderless"

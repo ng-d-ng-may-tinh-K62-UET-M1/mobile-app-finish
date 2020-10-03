@@ -3,6 +3,8 @@
   <color name="colorPrimary">#0064ff</color>
   <color name="colorPrimaryDark">#3700B3</color>
   <color name="colorAccent">#03DAC5</color>
+  <color name="colorTextPrimary">#434657</color>
+  <color name="backgroundPrimary">#ececec</color>
 
   <!--  Text-->
   <color name="text_primary_dark">#DE000000</color>    <!-- 87% - Primary text dark on light background -->
