@@ -118,4 +118,5 @@ dependencies {
   implementation(Libs.EPOXY)
   kapt(Libs.EPOXY_PROCESSOR)
   implementation(Libs.EPOXY_DATABINDING)
+  implementation(Libs.GSON)
 }

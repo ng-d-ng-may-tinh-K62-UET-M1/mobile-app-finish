@@ -1,25 +1,28 @@
 package com.example.smartparking.utils.databinding
 
+import android.view.View
 import androidx.databinding.BindingAdapter
 import com.example.smartparking.generated.callback.OnClickListener
 import com.example.smartparking.utils.uiwidget.CommonHeader
 
 object CommonHeaderBindingAdapters {
+
     @JvmStatic
     @BindingAdapter("onLeftButtonClick")
-    fun setLeftButtonClick(
-        header: CommonHeader,
-        listener: OnClickListener
+    fun setOnLeftIconClick(
+        headerView: CommonHeader,
+        listener: View.OnClickListener
     ) {
-        header.setLeftButtonClickListener(listener)
+        headerView.setLeftButtonClickListener(listener)
     }
 
     @JvmStatic
     @BindingAdapter("onRightButtonClick")
-    fun setRightButtonClick(
-        header: CommonHeader,
-        listener: OnClickListener
+    fun setOnRightTitleClick(
+        headerView: CommonHeader,
+        listener: View.OnClickListener
     ) {
-        header.setRightButtonClickListener(listener)
+        headerView.setRightButtonClickListener(listener)
     }
+
 }

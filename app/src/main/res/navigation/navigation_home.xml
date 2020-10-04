@@ -13,9 +13,22 @@
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.smartparking.ui.account.AccountFragment"
-        android:label="AccountFragment" />
+        android:label="AccountFragment">
+        <action
+            android:id="@+id/action_accountFragment_to_accountProfileFragment"
+            app:destination="@id/accountProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/myParkingFragment"
         android:name="com.example.smartparking.ui.myparking.MyParkingFragment"
         android:label="MyParkingFragment" />
+    <fragment
+        android:id="@+id/accountProfileFragment"
+        android:name="com.example.smartparking.ui.account.form.AccountProfileFragment"
+        android:label="AccountProfileFragment">
+        <argument
+            android:name="user"
+            app:argType="com.example.smartparking.data.model.User"
+            app:nullable="true" />
+    </fragment>
 </navigation>

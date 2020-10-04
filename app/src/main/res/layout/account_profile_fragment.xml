@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.text.InputType" />
+
+        <import type="android.view.inputmethod.EditorInfo" />
+
+        <variable
+            name="viewmodel"
+            type="com.example.smartparking.ui.account.form.AccountProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.smartparking.utils.uiwidget.CommonHeader
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerTitle="@string/header_my_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:leftIcon="@drawable/ic_back_24"
+            app:onLeftButtonClick="@{() -> viewmodel.goBack()}"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_12">
+
+                <com.example.smartparking.ui.widget.EditTextLine
+                    android:id="@+id/edtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/ui_light"
+                    android:paddingHorizontal="@dimen/margin_padding_16"
+                    app:enabled="true"
+                    app:imeOption="@{EditorInfo.IME_ACTION_DONE}"
+                    app:inputType="@{InputType.TYPE_CLASS_TEXT}"
+                    app:label="@string/account_profile_form_name_field"
+                    app:text="@{viewmodel.profile.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:showForwardButton="false" />
+
+                <com.example.smartparking.ui.widget.EditTextLine
+                    android:id="@+id/edtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/ui_light"
+                    android:paddingHorizontal="@dimen/margin_padding_16"
+                    app:enabled="true"
+                    app:imeOption="@{EditorInfo.IME_ACTION_DONE}"
+                    app:inputType="@{InputType.TYPE_CLASS_TEXT}"
+                    app:label="@string/account_profile_form_email_field"
+                    app:text="@{viewmodel.profile.email}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edtName"
+                    app:showForwardButton="false" />
+
+                <com.example.smartparking.ui.widget.EditTextLine
+                    android:id="@+id/edtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/ui_light"
+                    android:paddingHorizontal="@dimen/margin_padding_16"
+                    android:paddingBottom="@dimen/margin_padding_16"
+                    app:enabled="true"
+                    app:text="@{viewmodel.profile.phoneNumber}"
+                    app:imeOption="@{EditorInfo.IME_ACTION_DONE}"
+                    app:inputType="@{InputType.TYPE_CLASS_TEXT}"
+                    app:label="@string/account_profile_form_phone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edtEmail"
+                    app:showForwardButton="false" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_padding_12"
+                android:text="@string/common_save"
+                android:onClick="@{() -> viewmodel.updateUser()}"
+                android:theme="@style/BodyText13Bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

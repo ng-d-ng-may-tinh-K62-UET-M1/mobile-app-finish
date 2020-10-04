@@ -58,4 +58,5 @@ object Libs {
     const val EPOXY = "com.airbnb.android:epoxy:${LibsVersion.EPOXY}"
     const val EPOXY_PROCESSOR = "com.airbnb.android:epoxy-processor:${LibsVersion.EPOXY}"
     const val EPOXY_DATABINDING = "com.airbnb.android:epoxy-databinding:${LibsVersion.EPOXY}"
+    const val GSON = "com.google.code.gson:gson:${LibsVersion.GSON}"
 }

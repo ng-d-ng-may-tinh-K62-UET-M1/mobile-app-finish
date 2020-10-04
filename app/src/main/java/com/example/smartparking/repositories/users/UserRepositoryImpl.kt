@@ -3,6 +3,7 @@ package com.example.smartparking.repositories.users
 import com.example.smartparking.data.model.User
 import com.example.smartparking.utils.COLLECTION_USERS
 import com.example.smartparking.utils.Resource
+import com.example.smartparking.utils.extensions.serializeToMap
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.cancel
@@ -31,6 +32,15 @@ class UserRepositoryImpl @Inject constructor(
         user.uid?.let {
             firestore.collection(COLLECTION_USERS).document(it).set(user)
                 .addOnCompleteListener {}
+                .addOnFailureListener { e -> throw e }
+        }
+    }
+
+    override suspend fun updateUser(user: User) {
+        user.uid?.let {
+            val userMap = user.serializeToMap()
+            firestore.collection(COLLECTION_USERS).document(it).update(userMap)
+                .addOnSuccessListener {  }
                 .addOnFailureListener { e -> throw e }
         }
     }

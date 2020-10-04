@@ -7,4 +7,5 @@ import kotlinx.coroutines.flow.Flow
 interface UserRepository {
     fun getUser(uid: String): Flow<Resource<User?>>
     suspend fun addNewUser(user: User)
+    suspend fun updateUser(user: User)
 }

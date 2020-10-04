@@ -20,4 +20,11 @@
         <attr name="headerBackgroundColor" />
         <attr name="headerTextColor" />
     </declare-styleable>
+
+    <declare-styleable name="EditTextLine">
+        <attr name="label" format="string|reference" />
+        <attr name="enabled" format="boolean" />
+        <attr name="showForwardButton" format="boolean" />
+        <attr name="maxLength" format="integer" />
+    </declare-styleable>
 </resources>

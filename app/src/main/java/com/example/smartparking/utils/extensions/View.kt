@@ -6,6 +6,15 @@ import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat
+
+fun View.showKeyboard() {
+    if (requestFocus()) {
+        ContextCompat.getSystemService(context, InputMethodManager::class.java)
+            ?.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+    }
+}
 
 fun View.setBackgroundDrawableAndColor(
     drawable: Drawable? = null,

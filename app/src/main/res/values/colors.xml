@@ -21,4 +21,6 @@
   <color name="ui_dark">#333333</color>
   <color name="ui_blue">#0064ff</color>
   <color name="ui_border">#e0e0e0</color>
+  <color name="ui_placeholder">#b4b4b4</color>
+  <color name="ui_error">#eb2101</color>
 </resources>
