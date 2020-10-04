@@ -39,8 +39,8 @@ class AccountProfileViewModel @ViewModelInject constructor(
     fun updateUser() {
         viewModelScope.launch(Dispatchers.IO) {
             userRepository.updateUser(_profile.value!!)
-            goBack()
         }
+        goBack()
     }
 
     fun goBack() {

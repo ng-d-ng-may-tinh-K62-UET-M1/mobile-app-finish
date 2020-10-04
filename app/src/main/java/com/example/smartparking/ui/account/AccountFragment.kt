@@ -61,12 +61,19 @@ class AccountFragment : Fragment(), AccountController.AccountCallbacks {
     override fun onMenuItemClicked(index: Int, menuItem: AccountMenuModelGroup.AccountMenuItem) {
         when(menuItem.destination) {
             AccountMenuModelGroup.AccountMenuDestination.EDIT_PROFILE -> goToProfile()
+            AccountMenuModelGroup.AccountMenuDestination.VEHICLES -> goToVehicleList()
         }
     }
 
     private fun goToProfile() {
         findNavController()?.navigate(
             AccountFragmentDirections.actionAccountFragmentToAccountProfileFragment(viewModel.account.value)
+        )
+    }
+
+    private fun goToVehicleList() {
+        findNavController()?.navigate(
+            AccountFragmentDirections.actionAccountFragmentToVehicleListFragment()
         )
     }
 }

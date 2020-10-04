@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_accountFragment_to_accountProfileFragment"
             app:destination="@id/accountProfileFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_vehicleListFragment"
+            app:destination="@id/vehicleListFragment" />
     </fragment>
     <fragment
         android:id="@+id/myParkingFragment"
@@ -31,4 +34,9 @@
             app:argType="com.example.smartparking.data.model.User"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/vehicleListFragment"
+        android:name="com.example.smartparking.ui.account.vehicle.VehicleListFragment"
+        android:label="vehicle_list_fragment"
+        tools:layout="@layout/vehicle_list_fragment" />
 </navigation>
