@@ -64,7 +64,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
         if (googleMap != null) {
             mMap = googleMap
             mMap.setOnMarkerClickListener{marker -> onMarkerClick(marker)}
-            val sydney = LatLng(-34.0, 151.0)
+            val sydney = LatLng(21.038316, 105.782724)
             mMap.addMarker(
                 MarkerOptions()
                     .position(sydney)

@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/vehicleListFragment"
-        android:name="com.example.smartparking.ui.account.vehicle.VehicleListFragment"
+        android:name="com.example.smartparking.ui.account.vehicle.list.VehicleListFragment"
         android:label="vehicle_list_fragment"
         tools:layout="@layout/vehicle_list_fragment" />
 </navigation>

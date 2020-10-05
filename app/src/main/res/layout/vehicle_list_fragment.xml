@@ -1,13 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.smartparking.ui.account.vehicle.VehicleListFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.example.smartparking.ui.account.vehicle.list.VehicleListViewModel" />
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:orientation="vertical">
 
-</FrameLayout>
+        <com.example.smartparking.utils.uiwidget.CommonHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:headerTitle="@string/header_my_vehicle"
+            app:leftIcon="@drawable/ic_back_24"
+            app:onLeftButtonClick="@{() -> viewmodel.goBack()}" />
+
+        <include
+            android:id="@+id/layoutNoResult"
+            layout="@layout/layout_vehicle_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAddNewVehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="@dimen/margin_padding_16"
+            android:layout_marginEnd="@dimen/margin_padding_16"
+            android:backgroundTint="@color/colorPrimary"
+            app:tint="@color/ui_light"
+            app:srcCompat="@drawable/ic_add_24"/>
+
+    </RelativeLayout>
+</layout>

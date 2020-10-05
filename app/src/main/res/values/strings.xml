@@ -1,29 +1,33 @@
 <resources>
-  <string name="maps_api_key">AIzaSyAkTm9-Fk0CnFrRNJOjLfOuBdZ4DLuh3rs</string>
-  <string name="app_name">SmartParking</string>
-  <string name="key_is_user_onboarded">is_user_onboarded</string>
-  <string name="continue_with_google">Continue with Google</string>
+    <string name="maps_api_key">AIzaSyAkTm9-Fk0CnFrRNJOjLfOuBdZ4DLuh3rs</string>
+    <string name="app_name">SmartParking</string>
+    <string name="key_is_user_onboarded">is_user_onboarded</string>
+    <string name="continue_with_google">Continue with Google</string>
 
-  <!--  Navigation bar string-->
-  <string name="navigation_bar_home">Home</string>
-  <string name="navigation_bar_my_parking">My Parking</string>
-  <string name="navigation_bar_account">Account</string>
+    <!--  Navigation bar string-->
+    <string name="navigation_bar_home">Home</string>
+    <string name="navigation_bar_my_parking">My Parking</string>
+    <string name="navigation_bar_account">Account</string>
 
-  <string name="common_close">Close</string>
-  <string name="common_save">Save</string>
+    <string name="common_close">Close</string>
+    <string name="common_save">Save</string>
 
-  <string name="header_account">Account</string>
-  <string name="header_my_profile">MY PROFILE</string>
+    <string name="header_account">ACCOUNT</string>
+    <string name="header_my_profile">MY PROFILE</string>
+    <string name="header_my_vehicle">MY VEHICLE</string>
 
-  <string name="account_sign_in_as">you are signed in as</string>
-  <string name="account_sign_out">sign out</string>
+    <string name="account_sign_in_as">you are signed in as</string>
+    <string name="account_sign_out">sign out</string>
 
-  <string name="account_menu_item_profile">MY PROFILE</string>
-  <string name="account_menu_item_payment_method">PAYMENT METHOD</string>
-  <string name="account_menu_item_vehicle">MY VEHICLE</string>
+    <string name="account_menu_item_profile">MY PROFILE</string>
+    <string name="account_menu_item_payment_method">PAYMENT METHOD</string>
+    <string name="account_menu_item_vehicle">MY VEHICLE</string>
+    <string name="account_add_vehicle">ADD A VEHICLE</string>
+    <string name="account_vehicle_empty_body">You currently have no saved vehicles. Add one now to
+quickly complete bookings</string>
 
-  <string name="account_profile_form_name_field">Full Name*</string>
-  <string name="account_profile_form_email_field">Email Address</string>
-  <string name="account_profile_form_phone">Phone Number*</string>
+    <string name="account_profile_form_name_field">Full Name*</string>
+    <string name="account_profile_form_email_field">Email Address</string>
+    <string name="account_profile_form_phone">Phone Number*</string>
 
 </resources>
