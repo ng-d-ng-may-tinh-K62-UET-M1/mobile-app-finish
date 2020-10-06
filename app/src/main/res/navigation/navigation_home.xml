@@ -38,5 +38,14 @@
         android:id="@+id/vehicleListFragment"
         android:name="com.example.smartparking.ui.account.vehicle.list.VehicleListFragment"
         android:label="vehicle_list_fragment"
-        tools:layout="@layout/vehicle_list_fragment" />
+        tools:layout="@layout/vehicle_list_fragment" >
+        <action
+            android:id="@+id/action_vehicleListFragment_to_vehicleFormFragment"
+            app:destination="@id/vehicleFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vehicleFormFragment"
+        android:name="com.example.smartparking.ui.account.vehicle.form.VehicleFormFragment"
+        android:label="vehicle_form_fragment"
+        tools:layout="@layout/vehicle_form_fragment" />
 </navigation>

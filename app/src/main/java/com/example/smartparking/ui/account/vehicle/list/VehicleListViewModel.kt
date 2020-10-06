@@ -13,4 +13,8 @@ class VehicleListViewModel @ViewModelInject constructor () : ViewModel() {
     fun goBack() {
         vehicleListView?.goBack()
     }
+
+    fun goToVehicleForm() {
+        vehicleListView?.goToVehicleForm()
+    }
 }

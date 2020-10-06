@@ -34,4 +34,10 @@ class VehicleListFragment : Fragment(), VehicleListView {
         findNavController()?.navigateUp()
     }
 
+    override fun goToVehicleForm() {
+        findNavController()?.navigate(
+            VehicleListFragmentDirections.actionVehicleListFragmentToVehicleFormFragment()
+        )
+    }
+
 }

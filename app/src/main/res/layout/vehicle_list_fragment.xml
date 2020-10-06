@@ -37,6 +37,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="@dimen/margin_padding_16"
             android:layout_marginEnd="@dimen/margin_padding_16"
+            android:onClick="@{() -> viewmodel.goToVehicleForm()}"
             android:backgroundTint="@color/colorPrimary"
             app:tint="@color/ui_light"
             app:srcCompat="@drawable/ic_add_24"/>
