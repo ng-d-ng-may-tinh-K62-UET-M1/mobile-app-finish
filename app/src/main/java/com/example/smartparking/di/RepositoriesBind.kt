@@ -2,6 +2,8 @@ package com.example.smartparking.di
 
 import com.example.smartparking.repositories.users.UserRepository
 import com.example.smartparking.repositories.users.UserRepositoryImpl
+import com.example.smartparking.repositories.vehicles.VehicleRepository
+import com.example.smartparking.repositories.vehicles.VehicleRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -12,4 +14,7 @@ import dagger.hilt.android.components.ApplicationComponent
 abstract class RepositoriesBind {
     @Binds
     abstract fun provideUserRepository(impl: UserRepositoryImpl): UserRepository
+
+    @Binds
+    abstract fun provideVehicleRepository(impl: VehicleRepositoryImpl) : VehicleRepository
 }

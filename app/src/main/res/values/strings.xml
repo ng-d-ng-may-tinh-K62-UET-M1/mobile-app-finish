@@ -31,4 +31,8 @@ quickly complete bookings</string>
     <string name="account_profile_form_email_field">Email Address</string>
     <string name="account_profile_form_phone">Phone Number*</string>
 
+    <string name="vehicle_form_license_plate_number">License Plate Number</string>
+    <string name="vehicle_form_plate_name">Name</string>
+    <string name="vehicle_cofirm_add_vehicle">Make sure the vehicle you\'re parking matches your booking or you could be towed</string>
+
 </resources>

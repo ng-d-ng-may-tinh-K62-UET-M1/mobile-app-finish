@@ -1,34 +1,48 @@
 package com.example.smartparking.ui.account.vehicle.form
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.smartparking.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.example.smartparking.databinding.VehicleFormFragmentBinding
+import com.example.smartparking.utils.extensions.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class VehicleFormFragment : Fragment() {
+class VehicleFormFragment : Fragment(), VehicleFormView {
 
-    companion object {
-        fun newInstance() = VehicleFormFragment()
-    }
+    private val viewModel: VehicleFormViewModel by viewModels()
 
-    private lateinit var viewModel: VehicleFormViewModel
+    lateinit var binding: VehicleFormFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.vehicle_form_fragment, container, false)
+        binding = VehicleFormFragmentBinding.inflate(layoutInflater, container, false)
+        binding.apply {
+            viewmodel = viewModel
+        }
+        viewModel.setVehicleFormView(this)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(VehicleFormViewModel::class.java)
-        // TODO: Use the ViewModel
+        binding.apply {
+            edtPlateNumber.setTextChangeListener {
+                viewModel.setVehicleName(it)
+            }
+            edtPlateName.setTextChangeListener {
+                viewModel.setVehiclePlate(it)
+            }
+        }
+    }
+
+    override fun goBack() {
+        findNavController()?.navigateUp()
     }
 
 }
