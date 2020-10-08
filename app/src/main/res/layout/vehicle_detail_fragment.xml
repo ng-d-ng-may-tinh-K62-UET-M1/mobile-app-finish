@@ -1,13 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.smartparking.ui.account.vehicle.detail.VehicleDetailFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+
+        <import type="android.text.InputType" />
+
+        <import type="android.view.inputmethod.EditorInfo" />
+
+        <variable
+            name="viewmodel"
+            type="com.example.smartparking.ui.account.vehicle.detail.VehicleDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        tools:context="com.example.smartparking.ui.account.vehicle.form.VehicleFormFragment">
 
-</FrameLayout>
+
+        <com.example.smartparking.utils.uiwidget.CommonHeader
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerTitle="@string/header_edit_vehicle"
+            app:onLeftButtonClick="@{() -> viewmodel.goBack()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:leftIcon="@drawable/ic_close_24" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_25"
+                android:background="@color/ui_light"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/header">
+
+                <com.example.smartparking.ui.widget.EditTextLine
+                    android:id="@+id/edtPlateNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/ui_light"
+                    android:paddingHorizontal="@dimen/margin_padding_16"
+                    app:enabled="true"
+                    app:imeOption="@{EditorInfo.IME_ACTION_DONE}"
+                    app:inputType="@{InputType.TYPE_CLASS_TEXT}"
+                    app:label="@string/vehicle_form_license_plate_number"
+                    app:text="@{viewmodel.vehicle.plateNumber}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:showForwardButton="false" />
+
+                <com.example.smartparking.ui.widget.EditTextLine
+                    android:id="@+id/edtPlateName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/ui_light"
+                    android:paddingHorizontal="@dimen/margin_padding_16"
+                    app:enabled="true"
+                    app:text="@{viewmodel.vehicle.name}"
+                    app:imeOption="@{EditorInfo.IME_ACTION_DONE}"
+                    app:inputType="@{InputType.TYPE_CLASS_TEXT}"
+                    app:label="@string/vehicle_form_plate_name"
+                    app:showForwardButton="false" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/BodyText13Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/margin_padding_12"
+                    android:paddingVertical="@dimen/margin_padding_12"
+                    android:text="@string/vehicle_cofirm_add_vehicle" />
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_padding_12"
+                android:text="@string/common_save"
+                android:theme="@style/BodyText13Bold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_padding_12"
+                android:backgroundTint="@color/colorTextPrimary"
+                android:text="@string/common_delete"
+                android:theme="@style/BodyText13Bold" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

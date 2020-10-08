@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:theme="@style/BodyText13Bold"
-                android:text="@{user.name}"
+                android:text="@{user.email}"
                 android:layout_marginTop="@dimen/margin_padding_10"
                 tools:text="phmtuan313@gmail.com"/>
 

@@ -42,10 +42,21 @@
         <action
             android:id="@+id/action_vehicleListFragment_to_vehicleFormFragment"
             app:destination="@id/vehicleFormFragment" />
+        <action
+            android:id="@+id/action_vehicleListFragment_to_vehicleDetailFragment"
+            app:destination="@id/vehicleDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/vehicleFormFragment"
         android:name="com.example.smartparking.ui.account.vehicle.form.VehicleFormFragment"
         android:label="vehicle_form_fragment"
         tools:layout="@layout/vehicle_form_fragment" />
+    <fragment
+        android:id="@+id/vehicleDetailFragment"
+        android:name="com.example.smartparking.ui.account.vehicle.detail.VehicleDetailFragment"
+        android:label="VehicleDetailFragment">
+        <argument
+            android:name="vehicle"
+            app:argType="com.example.smartparking.data.model.Vehicle"/>
+    </fragment>
 </navigation>

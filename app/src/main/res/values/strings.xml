@@ -11,11 +11,14 @@
 
     <string name="common_close">Close</string>
     <string name="common_save">Save</string>
+    <string name="common_edit">Edit</string>
+    <string name="common_delete">Delete</string>
 
     <string name="header_account">ACCOUNT</string>
     <string name="header_my_profile">MY PROFILE</string>
     <string name="header_my_vehicle">MY VEHICLE</string>
     <string name="header_add_vehicle">ADD VEHICLE</string>
+    <string name="header_edit_vehicle">EDIT VEHICLE</string>
 
     <string name="account_sign_in_as">you are signed in as</string>
     <string name="account_sign_out">sign out</string>

@@ -1,32 +1,49 @@
 package com.example.smartparking.ui.account.vehicle.detail
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.smartparking.R
+import androidx.fragment.app.viewModels
+import com.example.smartparking.databinding.VehicleDetailFragmentBinding
+import com.example.smartparking.utils.extensions.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 
-class VehicleDetailFragment : Fragment() {
+@AndroidEntryPoint
+class VehicleDetailFragment : Fragment(), VehicleDetailView {
+    private lateinit var binding: VehicleDetailFragmentBinding
 
-    companion object {
-        fun newInstance() = VehicleDetailFragment()
+    private val vehicleDetailViewModel: VehicleDetailViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            VehicleDetailFragmentArgs.fromBundle(it).let {
+                vehicleDetailViewModel.setData(it.vehicle)
+            }
+        }
     }
-
-    private lateinit var viewModel: VehicleDetailViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.vehicle_detail_fragment, container, false)
+        binding = VehicleDetailFragmentBinding.inflate(inflater, container, false)
+        binding.apply {
+            viewmodel = vehicleDetailViewModel
+            lifecycleOwner = viewLifecycleOwner
+        }
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(VehicleDetailViewModel::class.java)
-        // TODO: Use the ViewModel
+        vehicleDetailViewModel.setVehicleDetailView(this)
+    }
+
+    override fun goBack() {
+        findNavController()?.navigateUp()
     }
 
 }

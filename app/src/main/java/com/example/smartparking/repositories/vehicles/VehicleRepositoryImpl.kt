@@ -5,6 +5,8 @@ import com.example.smartparking.utils.COLLECTION_VEHICLES
 import com.example.smartparking.utils.Resource
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import javax.inject.Inject
@@ -28,6 +30,7 @@ class VehicleRepositoryImpl @Inject constructor(
                         offer(Resource.success(value.toObjects(Vehicle::class.java)))
                     }
                 }
+            awaitClose {cancel()}
         }
 
 }
