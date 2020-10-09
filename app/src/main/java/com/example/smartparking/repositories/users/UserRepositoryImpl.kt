@@ -18,12 +18,20 @@ class UserRepositoryImpl @Inject constructor(
     @ExperimentalCoroutinesApi
     override fun getUser(uid: String): Flow<Resource<User?>> = callbackFlow {
         offer(Resource.loading())
-        firestore.collection(COLLECTION_USERS).document(uid).addSnapshotListener { snapshot, e ->
-            if (snapshot != null && snapshot.exists()) {
-                offer(Resource.success(snapshot.toObject(User::class.java)))
+        val listener = firestore.collection(COLLECTION_USERS).document(uid)
+            .addSnapshotListener { snapshot, e ->
+                if (snapshot != null && snapshot.exists()) {
+                    offer(Resource.success(snapshot.toObject(User::class.java)))
+                }
+                e?.let {
+                    offer(Resource.error(it.message.toString()))
+                    cancel(it.message.toString())
+                }
             }
+        awaitClose {
+            listener.remove()
+            cancel()
         }
-        awaitClose { cancel() }
     }
 
     override suspend fun addNewUser(
@@ -40,7 +48,7 @@ class UserRepositoryImpl @Inject constructor(
         user.uid?.let {
             val userMap = user.serializeToMap()
             firestore.collection(COLLECTION_USERS).document(it).update(userMap)
-                .addOnSuccessListener {  }
+                .addOnSuccessListener { }
                 .addOnFailureListener { e -> throw e }
         }
     }

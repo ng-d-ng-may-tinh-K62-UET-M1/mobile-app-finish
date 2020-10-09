@@ -1,5 +1,6 @@
 package com.example.smartparking.ui.account.vehicle.list
 
+import android.view.View
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.example.smartparking.data.model.Vehicle
@@ -18,7 +19,9 @@ class VehicleListViewModel @ViewModelInject constructor (
 
     val vehicles = Transformations.switchMap(_userUID) {
         it?.let { id ->
-            vehicleRepository.getVehiclesBelongToUser(id).asLiveData()
+            vehicleRepository.getVehiclesBelongToUser(id).asLiveData().switchMap {
+                it.getLiveDataIfSuccess()
+            }
         }
     }
 

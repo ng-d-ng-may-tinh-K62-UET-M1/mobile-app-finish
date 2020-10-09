@@ -30,8 +30,7 @@
 <!--            android:id="@+id/layoutNoResult"-->
 <!--            layout="@layout/layout_vehicle_empty"-->
 <!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_centerInParent="true" />-->
+<!--            android:layout_height="wrap_content" />-->
 
         <com.airbnb.epoxy.EpoxyRecyclerView
             android:id="@+id/vehicleItems"
@@ -42,6 +41,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:scrollbars="vertical"
+            android:padding="@dimen/margin_padding_20"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="1"/>
 

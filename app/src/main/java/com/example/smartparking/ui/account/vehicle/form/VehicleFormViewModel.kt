@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.smartparking.data.model.Vehicle
+import com.example.smartparking.data.model.VehicleWithOutDocumentId
 import com.example.smartparking.repositories.vehicles.VehicleRepository
 import com.example.smartparking.utils.auth.AuthenticationManager
 import kotlinx.coroutines.Dispatchers
@@ -13,14 +14,14 @@ import kotlinx.coroutines.launch
 
 class VehicleFormViewModel @ViewModelInject constructor(
     private val vehicleRepository: VehicleRepository,
-    private val authenticationManager: AuthenticationManager
+    authenticationManager: AuthenticationManager
 ) : ViewModel() {
     private val currentUid = authenticationManager.getCurrentUserId()
     private var vehicleFormView: VehicleFormView? = null
 
 
-    private val _vehicle = MutableLiveData<Vehicle>(Vehicle())
-    val vehicle: LiveData<Vehicle>
+    private val _vehicle = MutableLiveData<VehicleWithOutDocumentId>(VehicleWithOutDocumentId())
+    val vehicle: LiveData<VehicleWithOutDocumentId>
         get() = _vehicle
 
     fun setVehiclePlate(value: String) {
@@ -42,10 +43,8 @@ class VehicleFormViewModel @ViewModelInject constructor(
     fun addNewVehicle() {
         val vehicleToRequest = _vehicle.value
         vehicleToRequest?.uid = currentUid
-        viewModelScope.launch(Dispatchers.IO) {
-            vehicleToRequest?.let { vehicle ->
-                vehicleRepository.addVehicle(vehicle)
-            }
+        vehicleToRequest?.let { vehicle ->
+            vehicleRepository.addVehicle(vehicle)
         }
         goBack()
     }

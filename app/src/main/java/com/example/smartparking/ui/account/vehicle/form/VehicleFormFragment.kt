@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.smartparking.databinding.VehicleFormFragmentBinding
 import com.example.smartparking.utils.extensions.findNavController
+import com.example.smartparking.utils.extensions.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,6 +24,7 @@ class VehicleFormFragment : Fragment(), VehicleFormView {
     ): View? {
         binding = VehicleFormFragmentBinding.inflate(layoutInflater, container, false)
         binding.apply {
+            lifecycleOwner = viewLifecycleOwner
             viewmodel = viewModel
         }
         viewModel.setVehicleFormView(this)
@@ -31,14 +33,17 @@ class VehicleFormFragment : Fragment(), VehicleFormView {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        binding.apply {
-            edtPlateNumber.setTextChangeListener {
-                viewModel.setVehicleName(it)
-            }
-            edtPlateName.setTextChangeListener {
-                viewModel.setVehiclePlate(it)
-            }
+        binding.edtPlateNumber.setTextChangeListener { text ->
+            viewModel.setVehiclePlate(text)
         }
+        binding.edtPlateName.setTextChangeListener { text ->
+            viewModel.setVehicleName(text)
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        hideKeyboard()
     }
 
     override fun goBack() {

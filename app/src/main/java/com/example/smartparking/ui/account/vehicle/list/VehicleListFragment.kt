@@ -29,10 +29,11 @@ class VehicleListFragment : Fragment(), VehicleListView,
     ): View? {
         vehicleListController.callbacks = this
         binding = VehicleListFragmentBinding.inflate(inflater, container, false)
+        listenViewModel()
         binding.apply {
+            vehicleItems.setController(vehicleListController)
             viewmodel = vehicleListViewModel
             lifecycleOwner = viewLifecycleOwner
-            vehicleItems.setController(vehicleListController)
         }
         return binding.root
     }
@@ -40,12 +41,11 @@ class VehicleListFragment : Fragment(), VehicleListView,
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         vehicleListViewModel.setView(this)
-        listenViewModel()
     }
 
     private fun listenViewModel() {
         vehicleListViewModel.vehicles.observe(viewLifecycleOwner, Observer {
-            vehicleListController.setData(it.data)
+            vehicleListController.setData(it)
         })
     }
 

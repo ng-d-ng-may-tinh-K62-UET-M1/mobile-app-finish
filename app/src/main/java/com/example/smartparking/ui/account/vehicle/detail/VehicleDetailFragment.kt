@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.smartparking.databinding.VehicleDetailFragmentBinding
 import com.example.smartparking.utils.extensions.findNavController
+import com.example.smartparking.utils.extensions.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -40,6 +41,20 @@ class VehicleDetailFragment : Fragment(), VehicleDetailView {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         vehicleDetailViewModel.setVehicleDetailView(this)
+        binding.apply {
+            edtPlateNumber.setTextChangeListener { text ->
+                vehicleDetailViewModel.setVehiclePlateNumber(text)
+            }
+
+            edtPlateName.setTextChangeListener { text ->
+                vehicleDetailViewModel.setVehicleName(text)
+            }
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        hideKeyboard()
     }
 
     override fun goBack() {

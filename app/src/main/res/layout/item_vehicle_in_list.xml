@@ -15,8 +15,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@color/ui_light"
+        android:background="@drawable/layout_radius"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_padding_16"
         android:paddingVertical="@dimen/margin_padding_16"
         android:paddingHorizontal="@dimen/margin_padding_6">
         <androidx.appcompat.widget.AppCompatImageView
@@ -24,9 +25,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/license_plate_image"
+            android:layout_marginStart="@dimen/margin_padding_16"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="29a-999999"
+            android:text="@{vehicle.plateNumber}"
+            android:theme="@style/BodyTextPlateInImage"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintTop_toTopOf="@id/image"
+            app:layout_constraintBottom_toBottomOf="@id/image"
+            app:layout_constraintStart_toStartOf="@id/image"
+            app:layout_constraintEnd_toEndOf="@+id/image"
+            />
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
@@ -44,6 +59,7 @@
             android:layout_height="wrap_content"
             style="@style/BodyText13Bold"
             android:onClick="@{clickListener}"
+            android:padding="@dimen/margin_padding_16"
             android:textAllCaps="true"
             android:text="@string/common_edit"
             app:layout_constraintEnd_toEndOf="parent"

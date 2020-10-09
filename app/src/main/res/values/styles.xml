@@ -41,6 +41,11 @@
     <item name="android:textColor">@color/colorTextPrimary</item>
   </style>
 
+  <style name="BodyTextPlateInImage">
+    <item name="android:fontFamily">@font/roboto_medium_font</item>
+    <item name="android:textColor">@color/ui_light</item>
+  </style>
+
   <style name="BodyText13Bold" parent="BodyText13">
     <item name="android:textStyle">bold</item>
   </style>
