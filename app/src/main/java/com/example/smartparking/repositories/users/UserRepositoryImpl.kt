@@ -1,6 +1,9 @@
 package com.example.smartparking.repositories.users
 
 import com.example.smartparking.data.model.User
+import com.example.smartparking.data.model.User.Companion.EMAIL_FIELD
+import com.example.smartparking.data.model.User.Companion.NAME_FIELD
+import com.example.smartparking.data.model.User.Companion.PHONE_FIELD
 import com.example.smartparking.utils.COLLECTION_USERS
 import com.example.smartparking.utils.Resource
 import com.example.smartparking.utils.extensions.serializeToMap
@@ -46,11 +49,19 @@ class UserRepositoryImpl @Inject constructor(
 
     override suspend fun updateUser(user: User) {
         user.uid?.let {
-            val userMap = user.serializeToMap()
+            val userMap = userToMap(user)
             firestore.collection(COLLECTION_USERS).document(it).update(userMap)
                 .addOnSuccessListener { }
                 .addOnFailureListener { e -> throw e }
         }
+    }
+
+    private fun userToMap(user: User) : Map<String, Any?> {
+        return mapOf(
+            EMAIL_FIELD to user.email,
+            NAME_FIELD to user.name,
+            PHONE_FIELD to user.phoneNumber
+        )
     }
 
 }

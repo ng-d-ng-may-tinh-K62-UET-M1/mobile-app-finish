@@ -62,6 +62,7 @@ class AccountFragment : Fragment(), AccountController.AccountCallbacks {
         when(menuItem.destination) {
             AccountMenuModelGroup.AccountMenuDestination.EDIT_PROFILE -> goToProfile()
             AccountMenuModelGroup.AccountMenuDestination.VEHICLES -> goToVehicleList()
+            AccountMenuModelGroup.AccountMenuDestination.PAYMENT_METHODS -> goToPaymentMethod()
         }
     }
 
@@ -74,6 +75,12 @@ class AccountFragment : Fragment(), AccountController.AccountCallbacks {
     private fun goToVehicleList() {
         findNavController()?.navigate(
             AccountFragmentDirections.actionAccountFragmentToVehicleListFragment()
+        )
+    }
+
+    private fun goToPaymentMethod() {
+        findNavController()?.navigate(
+            AccountFragmentDirections.actionAccountFragmentToPaymentMethodFragment()
         )
     }
 }

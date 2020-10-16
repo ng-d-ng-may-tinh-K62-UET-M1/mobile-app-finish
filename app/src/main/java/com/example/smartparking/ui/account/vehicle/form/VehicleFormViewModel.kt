@@ -4,13 +4,9 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.smartparking.data.model.Vehicle
-import com.example.smartparking.data.model.VehicleWithOutDocumentId
 import com.example.smartparking.repositories.vehicles.VehicleRepository
 import com.example.smartparking.utils.auth.AuthenticationManager
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class VehicleFormViewModel @ViewModelInject constructor(
     private val vehicleRepository: VehicleRepository,
@@ -20,8 +16,8 @@ class VehicleFormViewModel @ViewModelInject constructor(
     private var vehicleFormView: VehicleFormView? = null
 
 
-    private val _vehicle = MutableLiveData<VehicleWithOutDocumentId>(VehicleWithOutDocumentId())
-    val vehicle: LiveData<VehicleWithOutDocumentId>
+    private val _vehicle = MutableLiveData<Vehicle>(Vehicle())
+    val vehicle: LiveData<Vehicle>
         get() = _vehicle
 
     fun setVehiclePlate(value: String) {

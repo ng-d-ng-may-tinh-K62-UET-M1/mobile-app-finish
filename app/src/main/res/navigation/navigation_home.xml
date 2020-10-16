@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_accountFragment_to_vehicleListFragment"
             app:destination="@id/vehicleListFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_paymentMethodFragment"
+            app:destination="@id/paymentMethodFragment" />
     </fragment>
     <fragment
         android:id="@+id/myParkingFragment"
@@ -58,5 +61,17 @@
         <argument
             android:name="vehicle"
             app:argType="com.example.smartparking.data.model.Vehicle"/>
+    </fragment>
+    <fragment
+        android:id="@+id/paymentMethodFormFragment"
+        android:name="com.example.smartparking.ui.account.paymentmethod.form.PaymentMethodFormFragment"
+        android:label="PaymentMethodFormFragment" />
+    <fragment
+        android:id="@+id/paymentMethodFragment"
+        android:name="com.example.smartparking.ui.account.paymentmethod.PaymentMethodFragment"
+        android:label="PaymentMethodFragment" >
+        <action
+            android:id="@+id/action_paymentMethodFragment_to_paymentMethodFormFragment"
+            app:destination="@id/paymentMethodFormFragment" />
     </fragment>
 </navigation>
