@@ -25,4 +25,11 @@ data class PaymentMethod(
     @get:PropertyName("uid")
     @set:PropertyName("uid")
     var uid: String? = null
-) : Parcelable
+) : Parcelable {
+    companion object {
+        const val CARD_NUMBER_FIELD = "card_number"
+        const val EXPIRED_DATE_FIELD = "expired_date"
+        const val CVV_FIELD = "cvv"
+        const val UID_FIELD = "uid"
+    }
+}

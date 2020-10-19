@@ -11,7 +11,7 @@
 
         <variable
             name="viewmodel"
-            type="com.example.smartparking.ui.account.paymentmethod.form.PaymentMethodFormViewModel" />
+            type="com.example.smartparking.ui.account.paymentmethod.detail.PaymentMethodDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -99,7 +99,6 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="@{() -> viewmodel.addNewPaymentMethod()}"
                 android:padding="@dimen/margin_padding_12"
                 android:text="@string/common_save"
                 android:theme="@style/BodyText13Bold"
@@ -107,6 +106,5 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
         </LinearLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -8,7 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.smartparking.databinding.PaymentMethodFormFragmentBinding
 import com.example.smartparking.utils.extensions.findNavController
+import com.example.smartparking.utils.extensions.hideKeyboard
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PaymentMethodFormFragment : Fragment(), PaymentMethodFormView {
 
     private val viewModel: PaymentMethodFormViewModel by viewModels()
@@ -24,12 +27,12 @@ class PaymentMethodFormFragment : Fragment(), PaymentMethodFormView {
             lifecycleOwner = viewLifecycleOwner
             viewmodel = viewModel
         }
+        viewModel.setView(this)
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel.setView(this)
         binding.edtCardNumber.setTextChangeListener { text ->
             viewModel.setCartNumberPaymentMethod(text)
         }
@@ -39,6 +42,11 @@ class PaymentMethodFormFragment : Fragment(), PaymentMethodFormView {
         binding.edtCvv.setTextChangeListener { text ->
             viewModel.setCVVPaymentMethod(text)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        hideKeyboard()
     }
 
     override fun goBack() {

@@ -47,7 +47,6 @@ class VehicleRepositoryImpl @Inject constructor(
 
     override fun updateVehicle(vehicle: Vehicle) {
         vehicle.documentId?.let {
-            val vehicleWithOutDocumentId = vehicle.copy(documentId = null)
             val vehicleMap = vehicleToMap(vehicle)
             firebaseFirestore.collection(COLLECTION_VEHICLES).document(it).update(vehicleMap)
                 .addOnSuccessListener { println("Update vehicle success") }
