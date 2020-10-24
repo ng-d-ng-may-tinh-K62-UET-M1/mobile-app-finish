@@ -92,6 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/margin_padding_12"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -101,10 +102,20 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/margin_padding_12"
                 android:text="@string/common_save"
+                android:onClick="@{() -> viewmodel.updatePaymentMethod()}"
                 android:theme="@style/BodyText13Bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_padding_12"
+                android:onClick="@{() -> viewmodel.deletePaymentMethod()}"
+                android:backgroundTint="@color/colorTextPrimary"
+                android:text="@string/common_delete"
+                android:theme="@style/BodyText13Bold" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

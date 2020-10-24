@@ -39,6 +39,7 @@ class PaymentMethodFragment : Fragment(),
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        paymentMethodController.callback = this
         viewModel.setView(this)
     }
 
@@ -59,7 +60,9 @@ class PaymentMethodFragment : Fragment(),
     }
 
     override fun onClickPaymentMethod(index: Int, paymentMethod: PaymentMethod) {
-        TODO("Not yet implemented")
+        findNavController()?.navigate(
+            PaymentMethodFragmentDirections.actionPaymentMethodFragmentToPaymentMethodDetailFragment(paymentMethod)
+        )
     }
 
 }

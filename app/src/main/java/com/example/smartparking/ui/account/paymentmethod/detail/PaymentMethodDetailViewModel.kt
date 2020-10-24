@@ -21,7 +21,37 @@ class PaymentMethodDetailViewModel @ViewModelInject constructor(
         this.paymentMethodDetailView = paymentMethodDetailView
     }
 
+    fun setData(paymentMethod: PaymentMethod) {
+        _paymentMethod.value = paymentMethod
+    }
+
+    fun setCartNumberPaymentMethod(value: String) {
+        _paymentMethod.value = _paymentMethod.value?.copy(cardNumber = value)
+    }
+
+    fun setExpDatePaymentMethod(value: String) {
+        _paymentMethod.value = _paymentMethod.value?.copy(expiredDate = value)
+    }
+
+    fun setCVVPaymentMethod(value: String) {
+        _paymentMethod.value = _paymentMethod.value?.copy(cvv = value)
+    }
+
     fun goBack() {
         paymentMethodDetailView?.goBack()
+    }
+
+    fun updatePaymentMethod() {
+        _paymentMethod.value?.let {
+            paymentMethodRepository.updatePaymentMethod(it)
+        }
+        goBack()
+    }
+
+    fun deletePaymentMethod() {
+        _paymentMethod.value?.let {
+            paymentMethodRepository.deletePaymentMethod(it)
+        }
+        goBack()
     }
 }

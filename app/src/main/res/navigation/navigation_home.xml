@@ -73,5 +73,16 @@
         <action
             android:id="@+id/action_paymentMethodFragment_to_paymentMethodFormFragment"
             app:destination="@id/paymentMethodFormFragment" />
+        <action
+            android:id="@+id/action_paymentMethodFragment_to_paymentMethodDetailFragment"
+            app:destination="@id/paymentMethodDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentMethodDetailFragment"
+        android:name="com.example.smartparking.ui.account.paymentmethod.detail.PaymentMethodDetailFragment"
+        android:label="PaymentMethodDetailFragment">
+        <argument
+            android:name="paymentMethod"
+            app:argType="com.example.smartparking.data.model.PaymentMethod"/>
     </fragment>
 </navigation>

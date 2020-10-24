@@ -52,6 +52,12 @@ class PaymentMethodRepositoryImpl @Inject constructor(
         }
     }
 
+    override fun deletePaymentMethod(paymentMethod: PaymentMethod) {
+        paymentMethod.documentId?.let {
+            firebaseFirestore.collection(COLLECTION_PAYMENT_METHOD).document(it).delete()
+        }
+    }
+
 
     private fun paymentMethodToMap(paymentMethod: PaymentMethod): Map<String, Any?> {
         return mapOf(

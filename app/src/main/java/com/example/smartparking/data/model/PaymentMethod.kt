@@ -14,8 +14,8 @@ data class PaymentMethod(
     @set:PropertyName("card_number")
     var cardNumber: String? = null,
 
-    @get:PropertyName("expried_date")
-    @set:PropertyName("expried_date")
+    @get:PropertyName("expired_date")
+    @set:PropertyName("expired_date")
     var expiredDate: String? = null,
 
     @get:PropertyName("cvv")
