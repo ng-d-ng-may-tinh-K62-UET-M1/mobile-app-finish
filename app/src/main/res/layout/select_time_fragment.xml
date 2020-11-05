@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.smartparking.ui.selecttime.SelectTimeViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/margin_padding_16"
+        tools:context=".ui.selecttime.SelectTimeFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitleSelectDateTime"
+            style="@style/BodyText13Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_25"
+            tools:text="Select date and time" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutArriveAfter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_padding_16"
+            android:background="@drawable/layout_radius_5"
+            android:paddingHorizontal="@dimen/margin_padding_12"
+            android:paddingVertical="@dimen/margin_padding_12">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvArriveAfter"
+                style="@style/BodyText13Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_padding_6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/select_time_arrive"
+                tools:text="Arrive After" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvArriveAfterDate"
+                style="@style/BodyText13Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_padding_16"
+                android:text="@{viewModel.startDateLabel}"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Fri, Apr 13" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutExitBefore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_padding_16"
+            android:background="@drawable/layout_radius_5"
+            android:paddingHorizontal="@dimen/margin_padding_12"
+            android:paddingVertical="@dimen/margin_padding_12">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvExitBefore"
+                style="@style/BodyText13Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_padding_6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/select_time_after"
+                tools:text="Exit Before" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvExitBeforeDate"
+                style="@style/BodyText13Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_padding_16"
+                android:text="@{viewModel.endDateLabel}"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Fri, Apr 13" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_padding_16"
+            android:layout_weight="1"
+            android:gravity="center|bottom">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonSave"
+                android:layout_width="match_parent"
+                android:onClick="@{() -> viewModel.findParking()}"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_padding_12"
+                android:text="@string/common_find"
+                android:theme="@style/BodyText13Bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

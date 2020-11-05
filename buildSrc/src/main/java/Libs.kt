@@ -59,4 +59,9 @@ object Libs {
     const val EPOXY_PROCESSOR = "com.airbnb.android:epoxy-processor:${LibsVersion.EPOXY}"
     const val EPOXY_DATABINDING = "com.airbnb.android:epoxy-databinding:${LibsVersion.EPOXY}"
     const val GSON = "com.google.code.gson:gson:${LibsVersion.GSON}"
+
+    const val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:${LibsVersion.LOGGING_INTERCEPTOR}"
+
+    const val RETROFIT = "com.squareup.retrofit2:retrofit:${LibsVersion.RETROFIT}"
+    const val CONVERTER_GSON = "com.squareup.retrofit2:converter-gson:${LibsVersion.RETROFIT}"
 }

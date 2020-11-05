@@ -1,5 +1,5 @@
 <resources>
-    <string name="maps_api_key">AIzaSyAkTm9-Fk0CnFrRNJOjLfOuBdZ4DLuh3rs</string>
+    <string name="maps_api_key">AIzaSyC0m5BO6QAvs-fWhMtnfv6hug13Hnk9LvY</string>
     <string name="app_name">SmartParking</string>
     <string name="key_is_user_onboarded">is_user_onboarded</string>
     <string name="continue_with_google">Continue with Google</string>
@@ -11,6 +11,7 @@
 
     <string name="common_close">Close</string>
     <string name="common_save">Save</string>
+    <string name="common_find">Find Parking</string>
     <string name="common_edit">Edit</string>
     <string name="common_delete">Delete</string>
 
@@ -40,6 +41,11 @@ quickly complete bookings</string>
     <string name="vehicle_cofirm_add_vehicle">Make sure the vehicle you\'re parking matches your booking or you could be towed</string>
 
     <string name="payment_method_enter_card_detail">Enter card details</string>
-        <string name="payment_method_add_payment_method">Add Payment Method</string>
+    <string name="payment_method_add_payment_method">Add Payment Method</string>
+    
+    <string name="home_find_around">Search around here!</string>
+    <string name="home_find_parking">Find parking</string>
+    <string name="select_time_arrive">Arrive After</string>
+    <string name="select_time_after">Exit Before</string>
 
 </resources>

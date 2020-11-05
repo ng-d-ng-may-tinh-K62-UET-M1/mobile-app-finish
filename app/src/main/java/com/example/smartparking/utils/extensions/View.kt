@@ -8,6 +8,9 @@ import android.os.Build
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
 
 fun View.showKeyboard() {
     if (requestFocus()) {
@@ -32,4 +35,11 @@ fun View.setBackgroundDrawableAndColor(
             background.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
         }
     }
+}
+
+fun View.clickEvent() : Flow<Unit> = callbackFlow {
+    setOnClickListener {
+        this.offer(Unit)
+    }
+    awaitClose { setOnClickListener(null) }
 }

@@ -42,4 +42,6 @@ object LibsVersion {
     const val PLAY_SERVICES_PLACES = "17.0.0"
     const val EPOXY = "4.1.0"
     const val GSON = "2.8.6"
+    const val LOGGING_INTERCEPTOR = "4.5.0"
+    const val RETROFIT = "2.9.0"
 }

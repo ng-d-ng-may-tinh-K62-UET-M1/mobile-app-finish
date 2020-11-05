@@ -15,13 +15,13 @@ class HomeViewModel @ViewModelInject constructor(
     private val authenticationManager: AuthenticationManager,
     private val preferenceDataSource: PreferenceDataSource
 ) : ViewModel() {
-    private val _signOutRequest = MutableLiveData<Event<Boolean>>(Event(false))
-    val signOutRequest: LiveData<Event<Boolean>>
-        get() = _signOutRequest
+    private var view: HomeView? = null
 
-    fun signOut() {
-        Firebase.auth.signOut()
-        preferenceDataSource.setIsUserOnboarded(false)
-        _signOutRequest.postValue(Event(true))
+    fun setHomeView(view: HomeView) {
+        this.view = view
+    }
+
+    fun goToFindParking() {
+        view?.goToFindParking()
     }
 }
