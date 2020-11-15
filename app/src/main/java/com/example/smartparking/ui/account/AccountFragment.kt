@@ -5,14 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.smartparking.databinding.AccountFragmentBinding
 import com.example.smartparking.splash.SplashActivity
 import com.example.smartparking.ui.account.models.AccountMenuModelGroup
-import com.example.smartparking.utils.extensions.findNavController
 import com.example.smartparking.utils.livedata.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -59,7 +58,7 @@ class AccountFragment : Fragment(), AccountController.AccountCallbacks {
     }
 
     override fun onMenuItemClicked(index: Int, menuItem: AccountMenuModelGroup.AccountMenuItem) {
-        when(menuItem.destination) {
+        when (menuItem.destination) {
             AccountMenuModelGroup.AccountMenuDestination.EDIT_PROFILE -> goToProfile()
             AccountMenuModelGroup.AccountMenuDestination.VEHICLES -> goToVehicleList()
             AccountMenuModelGroup.AccountMenuDestination.PAYMENT_METHODS -> goToPaymentMethod()
@@ -67,19 +66,19 @@ class AccountFragment : Fragment(), AccountController.AccountCallbacks {
     }
 
     private fun goToProfile() {
-        findNavController()?.navigate(
+        findNavController().navigate(
             AccountFragmentDirections.actionAccountFragmentToAccountProfileFragment(viewModel.account.value)
         )
     }
 
     private fun goToVehicleList() {
-        findNavController()?.navigate(
+        findNavController().navigate(
             AccountFragmentDirections.actionAccountFragmentToVehicleListFragment()
         )
     }
 
     private fun goToPaymentMethod() {
-        findNavController()?.navigate(
+        findNavController().navigate(
             AccountFragmentDirections.actionAccountFragmentToPaymentMethodFragment()
         )
     }

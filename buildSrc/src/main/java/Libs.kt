@@ -64,4 +64,6 @@ object Libs {
 
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${LibsVersion.RETROFIT}"
     const val CONVERTER_GSON = "com.squareup.retrofit2:converter-gson:${LibsVersion.RETROFIT}"
+
+    const val LEAK_CANARY = "com.squareup.leakcanary:leakcanary-android:${LibsVersion.LEAK_CANARY}"
 }

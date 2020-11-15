@@ -1,5 +1,6 @@
 package com.example.smartparking.repositories.findparking
 
+import com.example.smartparking.data.model.Parking
 import com.example.smartparking.data.request.FindParkingRequest
 import com.example.smartparking.data.response.FindParkingResponse
 import com.example.smartparking.utils.PATH_FIND_PARKING

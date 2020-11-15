@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.fragment_navigation_host)
         binding.bottomNavigation.setupWithNavController(navController)
 
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+        navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id) {
                 R.id.accountFragment -> showBottomNavigation()
                 R.id.myParkingFragment -> showBottomNavigation()

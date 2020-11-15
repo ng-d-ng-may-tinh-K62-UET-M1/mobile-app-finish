@@ -92,5 +92,36 @@
     <fragment
         android:id="@+id/selectTimeFragment"
         android:name="com.example.smartparking.ui.selecttime.SelectTimeFragment"
-        android:label="SelectTimeFragment" />
+        android:label="SelectTimeFragment" >
+        <action
+            android:id="@+id/action_selectTimeFragment_to_locationListFragment"
+            app:destination="@id/locationListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationListFragment"
+        android:name="com.example.smartparking.ui.locationlist.LocationListFragment"
+        android:label="LocationListFragment">
+        <argument
+            android:name="findParkingRequest"
+            app:argType="com.example.smartparking.data.request.FindParkingRequest"
+            app:nullable="true"/>
+        <action
+            android:id="@+id/action_locationListFragment_to_bookingFragment"
+            app:destination="@id/bookingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.example.smartparking.ui.booking.BookingFragment"
+        android:label="BookingFragment" >
+
+        <argument
+            android:name="findParkingRequest"
+            app:argType="com.example.smartparking.data.request.FindParkingRequest"
+            app:nullable="true"/>
+
+        <argument
+            android:name="parking"
+            app:argType="com.example.smartparking.data.model.Parking"
+            app:nullable="true"/>
+    </fragment>
 </navigation>

@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.smartparking.data.model.Vehicle
 import com.example.smartparking.databinding.VehicleListFragmentBinding
-import com.example.smartparking.utils.extensions.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -50,17 +50,17 @@ class VehicleListFragment : Fragment(), VehicleListView,
     }
 
     override fun goBack() {
-        findNavController()?.navigateUp()
+        findNavController().navigateUp()
     }
 
     override fun goToVehicleForm() {
-        findNavController()?.navigate(
+        findNavController().navigate(
             VehicleListFragmentDirections.actionVehicleListFragmentToVehicleFormFragment()
         )
     }
 
     override fun goToVehicleDetail(vehicle: Vehicle) {
-        findNavController()?.navigate(
+        findNavController().navigate(
             VehicleListFragmentDirections.actionVehicleListFragmentToVehicleDetailFragment(vehicle)
         )
     }

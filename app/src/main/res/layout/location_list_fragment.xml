@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.smartparking.ui.locationlist.LocationListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.locationlist.LocationListFragment">
+
+        <com.example.smartparking.utils.uiwidget.CommonHeader
+            android:id="@+id/header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:headerTitle="Map"
+            app:leftIcon="@drawable/ic_back_24"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            app:onLeftButtonClick="@{() -> viewmodel.goBack()}"
+            android:layout_height="@dimen/header_height"/>
+
+        <fragment
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header"
+            app:layout_constraintBottom_toBottomOf="parent"
+            class="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_height="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

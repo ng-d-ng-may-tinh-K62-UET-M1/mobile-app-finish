@@ -2,23 +2,23 @@ package com.example.smartparking.data.model
 
 import android.os.Parcelable
 import com.google.firebase.firestore.PropertyName
+import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Parking(
-    @get:PropertyName("title")
-    @set:PropertyName("title")
+    @SerializedName("document_id")
+    var documentId: String? = null,
+
+    @SerializedName("title")
     var title: String = "",
 
-    @get:PropertyName("latitude")
-    @set:PropertyName("latitude")
+    @SerializedName("latitude")
     var latitude: String = "",
 
-    @get:PropertyName("longtitude")
-    @set:PropertyName("longtitude")
-    var longtitude: String = "",
+    @SerializedName("longitude")
+    var longitude: String = "",
 
-    @get:PropertyName("slots_num")
-    @set:PropertyName("slots_num")
+    @SerializedName("slots_num")
     var slotsNum: String = ""
 ) : Parcelable

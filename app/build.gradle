@@ -126,4 +126,6 @@ dependencies {
 
   implementation(Libs.RETROFIT)
   implementation(Libs.CONVERTER_GSON)
+
+  debugImplementation(Libs.LEAK_CANARY)
 }

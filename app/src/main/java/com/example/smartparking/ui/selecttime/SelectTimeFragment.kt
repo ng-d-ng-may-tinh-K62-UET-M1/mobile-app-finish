@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.example.smartparking.data.request.FindParkingRequest
+import com.example.smartparking.data.response.FindParkingResponse
 import com.example.smartparking.databinding.SelectTimeFragmentBinding
 import com.example.smartparking.utils.extensions.clickEvent
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,7 +22,7 @@ import java.util.*
 import kotlin.math.min
 
 @AndroidEntryPoint
-class SelectTimeFragment : Fragment() {
+class SelectTimeFragment : Fragment(), SelectTimeView {
     private val selectTimeViewModel: SelectTimeViewModel by viewModels()
 
     private lateinit var binding: SelectTimeFragmentBinding
@@ -38,6 +41,7 @@ class SelectTimeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        selectTimeViewModel.selectTimeView = this
         initDatePicker()
     }
 
@@ -87,5 +91,9 @@ class SelectTimeFragment : Fragment() {
             },
             year, month, dayOfMonth
         ).show()
+    }
+
+    override fun goToLocationList(findParkingRequest: FindParkingRequest?) {
+        findNavController().navigate(SelectTimeFragmentDirections.actionSelectTimeFragmentToLocationListFragment(findParkingRequest))
     }
 }

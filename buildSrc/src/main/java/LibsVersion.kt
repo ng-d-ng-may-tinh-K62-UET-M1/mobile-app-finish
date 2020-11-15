@@ -44,4 +44,5 @@ object LibsVersion {
     const val GSON = "2.8.6"
     const val LOGGING_INTERCEPTOR = "4.5.0"
     const val RETROFIT = "2.9.0"
+    const val LEAK_CANARY = "2.5"
 }

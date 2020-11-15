@@ -1,15 +1,13 @@
 package com.example.smartparking.ui.account.paymentmethod.detail
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.smartparking.R
+import androidx.navigation.fragment.findNavController
 import com.example.smartparking.databinding.PaymentMethodDetailFragmentBinding
-import com.example.smartparking.utils.extensions.findNavController
 import com.example.smartparking.utils.extensions.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -61,7 +59,7 @@ class PaymentMethodDetailFragment : Fragment(), PaymentMethodDetailView {
     }
 
     override fun goBack() {
-        findNavController()?.navigateUp()
+        findNavController().navigateUp()
     }
 
 }

@@ -1,5 +1,7 @@
 package com.example.smartparking.di
 
+import com.example.smartparking.repositories.parking.ParkingRepository
+import com.example.smartparking.repositories.parking.ParkingRepositoryImpl
 import com.example.smartparking.repositories.paymentmethod.PaymentMethodRepository
 import com.example.smartparking.repositories.paymentmethod.PaymentMethodRepositoryImpl
 import com.example.smartparking.repositories.users.UserRepository
@@ -22,4 +24,7 @@ abstract class RepositoriesBind {
 
     @Binds
     abstract fun providePaymentMethodRepository(impl: PaymentMethodRepositoryImpl) : PaymentMethodRepository
+
+    @Binds
+    abstract fun provideParkingRepository(impl: ParkingRepositoryImpl) : ParkingRepository
 }

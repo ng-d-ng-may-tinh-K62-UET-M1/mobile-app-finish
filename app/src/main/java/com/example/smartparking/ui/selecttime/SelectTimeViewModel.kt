@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.smartparking.data.request.FindParkingRequest
 import com.example.smartparking.repositories.datasource.FindParkingDataSource
+import com.example.smartparking.utils.Resource
 import com.example.smartparking.utils.TimeUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,6 +16,7 @@ import java.util.*
 class SelectTimeViewModel @ViewModelInject constructor(
     private val findParkingDataSource: FindParkingDataSource
 ) : ViewModel() {
+    var selectTimeView: SelectTimeView? = null
     var endDate: Calendar = Calendar.getInstance()
     var startDate: Calendar = run {
         val startCalendar = Calendar.getInstance()
@@ -44,18 +46,11 @@ class SelectTimeViewModel @ViewModelInject constructor(
     }
 
     fun findParking() {
-        viewModelScope.launch(Dispatchers.IO) {
-            val a =findParkingDataSource.getParkingListAvailable(
-                request = FindParkingRequest(
-                    timeIn = formatCalenderRequest(startDate),
-                    timeOut = formatCalenderRequest(endDate)
-                )
-            )
-        }
-    }
-
-    private suspend fun findParkingFromRemote() {
-
+        val request = FindParkingRequest(
+            timeIn = formatCalenderRequest(startDate),
+            timeOut = formatCalenderRequest(endDate)
+        )
+        selectTimeView?.goToLocationList(request)
     }
 
     private fun setTimeToStartOfDay(date: Calendar) {

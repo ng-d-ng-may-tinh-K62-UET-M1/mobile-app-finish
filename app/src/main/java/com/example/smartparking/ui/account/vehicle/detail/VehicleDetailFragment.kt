@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.smartparking.databinding.VehicleDetailFragmentBinding
-import com.example.smartparking.utils.extensions.findNavController
 import com.example.smartparking.utils.extensions.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -58,7 +58,7 @@ class VehicleDetailFragment : Fragment(), VehicleDetailView {
     }
 
     override fun goBack() {
-        findNavController()?.navigateUp()
+        findNavController().navigateUp()
     }
 
 }

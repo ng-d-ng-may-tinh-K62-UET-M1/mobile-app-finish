@@ -1,18 +1,15 @@
 package com.example.smartparking.ui.account.form
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.smartparking.R
+import androidx.navigation.fragment.findNavController
 import com.example.smartparking.databinding.AccountProfileFragmentBinding
-import com.example.smartparking.utils.extensions.findNavController
 import com.example.smartparking.utils.extensions.hideKeyboard
-import com.example.smartparking.utils.livedata.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class AccountProfileFragment : Fragment(), AccountProfileView {
@@ -54,7 +51,7 @@ class AccountProfileFragment : Fragment(), AccountProfileView {
     }
 
     override fun goBack() {
-        findNavController()?.navigateUp()
+        findNavController().navigateUp()
     }
 
     override fun onPause() {

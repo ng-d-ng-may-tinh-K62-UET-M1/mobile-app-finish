@@ -14,6 +14,7 @@
     <string name="common_find">Find Parking</string>
     <string name="common_edit">Edit</string>
     <string name="common_delete">Delete</string>
+    <string name="common_more">More</string>
 
     <string name="header_account">ACCOUNT</string>
     <string name="header_my_profile">MY PROFILE</string>

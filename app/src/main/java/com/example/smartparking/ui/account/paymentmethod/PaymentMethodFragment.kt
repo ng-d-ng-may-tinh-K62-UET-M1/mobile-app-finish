@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.smartparking.data.model.PaymentMethod
 import com.example.smartparking.databinding.PaymentMethodFragmentBinding
-import com.example.smartparking.utils.extensions.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -50,17 +50,17 @@ class PaymentMethodFragment : Fragment(),
     }
 
     override fun goBack() {
-        findNavController()?.navigateUp()
+        findNavController().navigateUp()
     }
 
     override fun goToPaymentMethodForm() {
-        findNavController()?.navigate(
+        findNavController().navigate(
             PaymentMethodFragmentDirections.actionPaymentMethodFragmentToPaymentMethodFormFragment()
         )
     }
 
     override fun onClickPaymentMethod(index: Int, paymentMethod: PaymentMethod) {
-        findNavController()?.navigate(
+        findNavController().navigate(
             PaymentMethodFragmentDirections.actionPaymentMethodFragmentToPaymentMethodDetailFragment(paymentMethod)
         )
     }
