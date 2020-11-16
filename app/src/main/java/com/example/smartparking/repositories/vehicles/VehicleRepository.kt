@@ -9,4 +9,5 @@ interface VehicleRepository {
     fun getVehiclesBelongToUser(uid: String) : Flow<Resource<List<Vehicle>>>
     fun updateVehicle(vehicle: Vehicle)
     fun deleteVehicle(vehicle: Vehicle)
+    fun getFirstVehicle(uid: String) : Flow<Resource<Vehicle>>
 }

@@ -38,6 +38,12 @@ class VehicleListFragment : Fragment(), VehicleListView,
         return binding.root
     }
 
+    override fun onDestroyView() {
+        vehicleListController.callbacks = null
+        binding.vehicleItems.clear()
+        super.onDestroyView()
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         vehicleListViewModel.setView(this)

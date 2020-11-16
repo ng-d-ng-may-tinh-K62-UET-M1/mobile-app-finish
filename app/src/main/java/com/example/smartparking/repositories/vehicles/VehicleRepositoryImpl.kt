@@ -60,6 +60,20 @@ class VehicleRepositoryImpl @Inject constructor(
         }
     }
 
+    @ExperimentalCoroutinesApi
+    override fun getFirstVehicle(uid: String): Flow<Resource<Vehicle>> = callbackFlow {
+        offer(Resource.loading())
+        val listener = firebaseFirestore.collection(COLLECTION_VEHICLES).whereEqualTo("uid", uid)
+            .get()
+            .addOnSuccessListener { documents ->
+                offer(Resource.success(documents.toObjects(Vehicle::class.java).first()))
+            }
+            .addOnFailureListener { exception ->
+                offer(Resource.error(exception.message ?: "error"))
+            }
+        awaitClose { cancel() }
+    }
+
     private fun vehicleToMap(vehicle: Vehicle) : Map<String, Any?> {
         return mapOf(
             PLATE_NUMBER_FIELD to vehicle.plateNumber,

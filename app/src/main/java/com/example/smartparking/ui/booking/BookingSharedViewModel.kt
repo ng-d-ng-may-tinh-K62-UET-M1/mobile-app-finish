@@ -23,4 +23,9 @@ class BookingSharedViewModel @ViewModelInject constructor() : ViewModel() {
     fun setSelectedVehicle(vehicle: Vehicle?) {
         if (vehicle != _selectedVehicle.value) _selectedVehicle.value = vehicle
     }
+
+    fun reset() {
+        _parkingDetail.value = null
+        _selectedVehicle.value = null
+    }
 }

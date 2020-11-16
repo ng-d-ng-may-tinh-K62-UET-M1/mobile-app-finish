@@ -123,5 +123,12 @@
             android:name="parking"
             app:argType="com.example.smartparking.data.model.Parking"
             app:nullable="true"/>
+        <action
+            android:id="@+id/action_bookingFragment_to_bookingVehicleFragment"
+            app:destination="@id/bookingVehicleFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/bookingVehicleFragment"
+        android:name="com.example.smartparking.ui.booking.vehicles.BookingVehicleFragment"
+        android:label="BookingVehicleFragment" />
 </navigation>

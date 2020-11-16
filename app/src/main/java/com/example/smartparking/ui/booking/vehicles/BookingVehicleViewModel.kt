@@ -1,15 +1,16 @@
-package com.example.smartparking.ui.account.vehicle.list
+package com.example.smartparking.ui.booking.vehicles
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.example.smartparking.repositories.vehicles.VehicleRepository
+import com.example.smartparking.ui.account.vehicle.list.VehicleListView
 import com.example.smartparking.utils.auth.AuthenticationManager
 
-class VehicleListViewModel @ViewModelInject constructor(
+class BookingVehicleViewModel @ViewModelInject constructor(
     authenticationManager: AuthenticationManager,
     private val vehicleRepository: VehicleRepository
 ) : ViewModel() {
-    private var vehicleListView: VehicleListView? = null
+    private var bookingVehicleListView: BookingVehicleListView? = null
 
     private val _userUID = MutableLiveData<String>(authenticationManager.getCurrentUserId())
 
@@ -21,15 +22,11 @@ class VehicleListViewModel @ViewModelInject constructor(
         }
     }
 
-    fun setView(vehicleListView: VehicleListView) {
-        this.vehicleListView = vehicleListView
+    fun setView(bookingVehicleListView: BookingVehicleListView) {
+        this.bookingVehicleListView = bookingVehicleListView
     }
 
     fun goBack() {
-        vehicleListView?.goBack()
-    }
-
-    fun goToVehicleForm() {
-        vehicleListView?.goToVehicleForm()
+        bookingVehicleListView?.goBack()
     }
 }

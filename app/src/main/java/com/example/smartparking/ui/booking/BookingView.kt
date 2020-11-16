@@ -1,3 +1,5 @@
 package com.example.smartparking.ui.booking
 
-interface BookingView
+interface BookingView {
+    fun goBack()
+}

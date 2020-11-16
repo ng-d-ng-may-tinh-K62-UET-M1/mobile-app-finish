@@ -8,6 +8,7 @@ import com.example.smartparking.repositories.findparking.FindParkingService
 import com.example.smartparking.repositories.parking.ParkingRepository
 import kotlinx.coroutines.*
 import java.lang.Exception
+import java.time.format.DateTimeFormatter
 
 class LocationListViewModel @ViewModelInject constructor(
     private val findParkingService: FindParkingService
@@ -33,6 +34,12 @@ class LocationListViewModel @ViewModelInject constructor(
 
     fun goBack() {
         locationListView?.goBack()
+    }
+
+    fun getSelectedParking(title: String) : Parking? {
+        return _locationList.value?.findLast {
+            it.title == title
+        }
     }
 
     private suspend fun getParkingData(findParkingRequest: FindParkingRequest?) {

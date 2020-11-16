@@ -9,15 +9,16 @@ import androidx.lifecycle.Observer
 import com.example.smartparking.data.model.ParkingDetailDataStore
 import com.example.smartparking.data.model.Vehicle
 import com.example.smartparking.ui.booking.BookingSharedViewModel
+import com.example.smartparking.ui.booking.BookingViewModel
 
 abstract class BaseBookingFragment : Fragment(), BaseBookingView {
-    private val baseBookingViewModel: BaseBookingViewModel by viewModels()
+    private val bookingViewModel: BookingViewModel by viewModels()
 
-    private val bookingSharedViewModel: BookingSharedViewModel by activityViewModels()
+    val bookingSharedViewModel: BookingSharedViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        baseBookingViewModel.baseBookingView = this
+        bookingViewModel.baseBookingView = this
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,11 +36,11 @@ abstract class BaseBookingFragment : Fragment(), BaseBookingView {
 
     open fun initComponents() {
         bookingSharedViewModel.parkingDetailDataStore.observe(viewLifecycleOwner, Observer {
-            baseBookingViewModel.onSyncParkingDetailFromShareViewModel(it)
+            bookingViewModel.onSyncParkingDetailFromShareViewModel(it)
         })
 
         bookingSharedViewModel.selectedVehicle.observe(viewLifecycleOwner, Observer {
-            baseBookingViewModel.onSyncSelectedVehicleFromShareViewModel(it)
+            bookingViewModel.onSyncSelectedVehicleFromShareViewModel(it)
         })
     }
 }

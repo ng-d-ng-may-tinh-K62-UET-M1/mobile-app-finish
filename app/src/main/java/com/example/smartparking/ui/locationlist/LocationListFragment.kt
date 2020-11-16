@@ -78,7 +78,8 @@ class LocationListFragment : Fragment(), OnMapReadyCallback, LocationListView {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         mMap.setOnMarkerClickListener {
-            findNavController().navigate(LocationListFragmentDirections.actionLocationListFragmentToBookingFragment(null, null))
+            findNavController().navigate(LocationListFragmentDirections.actionLocationListFragmentToBookingFragment(
+                viewModel.findParkingRequest, viewModel.getSelectedParking(it.title)))
             false
         }
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15f))

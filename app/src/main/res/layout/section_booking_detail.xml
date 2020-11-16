@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dataStore"
+            type="com.example.smartparking.data.model.ParkingDetailDataStore" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/margin_padding_16"
+        android:paddingEnd="@dimen/margin_padding_16">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="@dimen/common_zero"
+            android:layout_height="wrap_content"
+            android:background="@color/ui_light"
+            android:paddingStart="@dimen/margin_padding_16"
+            android:paddingTop="@dimen/margin_padding_16"
+            android:paddingEnd="@dimen/margin_padding_16"
+            android:paddingBottom="@dimen/margin_padding_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/icLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_location_on_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLocation"
+                style="@style/BodyText13Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_padding_12"
+                android:text="@{dataStore.locationTitle}"
+                app:layout_constraintBottom_toBottomOf="@+id/icLocation"
+                app:layout_constraintStart_toEndOf="@+id/icLocation"
+                app:layout_constraintTop_toTopOf="@+id/icLocation"
+                tools:text="VNU-UET 144 Xuan Thuy Str" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/icTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_10"
+                android:src="@drawable/ic_access_alarm_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/icLocation" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTimeIn"
+                style="@style/BodyText13Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_padding_12"
+                android:text="@{dataStore.timeIn}"
+                app:layout_constraintBottom_toBottomOf="@id/icTime"
+                app:layout_constraintStart_toEndOf="@+id/icTime"
+                app:layout_constraintTop_toTopOf="@id/icTime"
+                tools:text="Apr 13rd, 2020, 10:00 AM " />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTimeOut"
+                style="@style/BodyText13Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_10"
+                android:text="@{dataStore.timeOut}"
+                app:layout_constraintStart_toStartOf="@id/tvTimeIn"
+                app:layout_constraintTop_toBottomOf="@id/tvTimeIn"
+                tools:text="Apr 23rd, 2020, 10:00 AM " />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/icMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_10"
+                android:src="@drawable/ic_attach_money_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTimeOut" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvMoney"
+                style="@style/BodyText13Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_padding_12"
+                app:layout_constraintBottom_toBottomOf="@id/icMoney"
+                app:layout_constraintStart_toEndOf="@id/icMoney"
+                app:layout_constraintTop_toTopOf="@id/icMoney"
+                android:text="$13.00"
+                tools:text="$13.00" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

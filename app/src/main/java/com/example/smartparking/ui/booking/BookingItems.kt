@@ -9,6 +9,6 @@ sealed class BookingItems(val id: String) {
     ) : BookingItems("parking_detail")
 
     data class BookingVehicle(
-        var vehicle: Vehicle
+        var vehicle: Vehicle?
     ) : BookingItems("booking_vehicle")
 }
