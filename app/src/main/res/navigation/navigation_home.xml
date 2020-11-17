@@ -105,6 +105,11 @@
             android:name="findParkingRequest"
             app:argType="com.example.smartparking.data.request.FindParkingRequest"
             app:nullable="true"/>
+
+        <argument
+            android:name="findParkingDateTime"
+            app:argType="com.example.smartparking.data.request.FindParkingDateTime"
+            app:nullable="true"/>
         <action
             android:id="@+id/action_locationListFragment_to_bookingFragment"
             app:destination="@id/bookingFragment" />
@@ -123,9 +128,17 @@
             android:name="parking"
             app:argType="com.example.smartparking.data.model.Parking"
             app:nullable="true"/>
+
+        <argument
+            android:name="findParkingDateTime"
+            app:argType="com.example.smartparking.data.request.FindParkingDateTime"
+            app:nullable="true"/>
         <action
             android:id="@+id/action_bookingFragment_to_bookingVehicleFragment"
             app:destination="@id/bookingVehicleFragment" />
+        <action
+            android:id="@+id/action_bookingFragment_to_myParkingFragment"
+            app:destination="@id/myParkingFragment" />
     </fragment>
     <fragment
         android:id="@+id/bookingVehicleFragment"

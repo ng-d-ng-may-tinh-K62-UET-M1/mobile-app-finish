@@ -38,7 +38,7 @@ class LocationListFragment : Fragment(), OnMapReadyCallback, LocationListView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let { LocationListFragmentArgs.fromBundle(it) }?.let {
-            viewModel.setData(it.findParkingRequest)
+            viewModel.setData(it.findParkingRequest, it.findParkingDateTime)
         }
         viewModel.locationListView = this
     }
@@ -79,7 +79,7 @@ class LocationListFragment : Fragment(), OnMapReadyCallback, LocationListView {
         mMap = googleMap
         mMap.setOnMarkerClickListener {
             findNavController().navigate(LocationListFragmentDirections.actionLocationListFragmentToBookingFragment(
-                viewModel.findParkingRequest, viewModel.getSelectedParking(it.title)))
+                viewModel.findParkingRequest, viewModel.getSelectedParking(it.title), viewModel.findParkingDateTime))
             false
         }
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15f))

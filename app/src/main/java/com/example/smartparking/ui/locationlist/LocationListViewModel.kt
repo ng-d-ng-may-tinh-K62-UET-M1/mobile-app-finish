@@ -3,6 +3,7 @@ package com.example.smartparking.ui.locationlist
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.example.smartparking.data.model.Parking
+import com.example.smartparking.data.request.FindParkingDateTime
 import com.example.smartparking.data.request.FindParkingRequest
 import com.example.smartparking.repositories.findparking.FindParkingService
 import com.example.smartparking.repositories.parking.ParkingRepository
@@ -23,10 +24,13 @@ class LocationListViewModel @ViewModelInject constructor(
 
     var findParkingRequest: FindParkingRequest? = null
 
+    var findParkingDateTime: FindParkingDateTime? = null
+
     var locationListView: LocationListView? = null
 
-    fun setData(findParkingRequest: FindParkingRequest?) {
+    fun setData(findParkingRequest: FindParkingRequest?, findParkingDateTime: FindParkingDateTime?) {
         this.findParkingRequest = findParkingRequest
+        this.findParkingDateTime = findParkingDateTime
         viewModelScope.launch {
             getParkingData(findParkingRequest)
         }

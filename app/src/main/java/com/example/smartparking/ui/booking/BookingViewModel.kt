@@ -1,13 +1,19 @@
 package com.example.smartparking.ui.booking
 
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.smartparking.data.model.Booking
 import com.example.smartparking.data.model.Parking
 import com.example.smartparking.data.model.ParkingDetailDataStore
 import com.example.smartparking.data.model.Vehicle
+import com.example.smartparking.data.request.FindParkingDateTime
 import com.example.smartparking.data.request.FindParkingRequest
 import com.example.smartparking.repositories.vehicles.VehicleRepository
 import com.example.smartparking.ui.booking.base.BaseBookingView
+import com.example.smartparking.utils.COLLECTION_BOOKING_LIST
 import com.example.smartparking.utils.COLLECTION_VEHICLES
 import com.example.smartparking.utils.auth.AuthenticationManager
 import com.google.firebase.firestore.FirebaseFirestore
@@ -32,6 +38,8 @@ class BookingViewModel @ViewModelInject constructor(
     private val _bookingItems = MutableLiveData<List<BookingItems>>()
     val bookingItems: LiveData<List<BookingItems>> = _bookingItems
 
+    var findParkingDateTime: FindParkingDateTime? = null
+
 
     init {
         initBookingItems()
@@ -47,19 +55,29 @@ class BookingViewModel @ViewModelInject constructor(
         bookingView?.goBack()
     }
 
-    fun setData(findParkingRequest: FindParkingRequest?, parking: Parking?) {
-        syncParkingDetailToShareViewModel(ParkingDetailDataStore.createFromFindParkingRequestAndParking(findParkingRequest, parking))
+    fun setData(
+        findParkingRequest: FindParkingRequest?,
+        parking: Parking?,
+        findParkingDateTime: FindParkingDateTime?
+    ) {
+        this.findParkingDateTime = findParkingDateTime
+        syncParkingDetailToShareViewModel(
+            ParkingDetailDataStore.createFromFindParkingRequestAndParking(
+                findParkingRequest,
+                parking
+            )
+        )
         viewModelScope.launch {
             getSelectedVehicle()
         }
     }
 
-     private fun getSelectedVehicle() {
+    private fun getSelectedVehicle() {
         _userUID.value?.let {
             firebaseFirestore.collection(COLLECTION_VEHICLES).whereEqualTo("uid", it)
                 .get()
                 .addOnSuccessListener { documents ->
-                    _selectedVehicle.value = documents.toObjects(Vehicle::class.java).first()
+                    _selectedVehicle.value = documents.toObjects(Vehicle::class.java).firstOrNull()
                     syncSelectedVehicleToShareViewModel(_selectedVehicle.value)
                 }
                 .addOnFailureListener { exception ->
@@ -76,7 +94,7 @@ class BookingViewModel @ViewModelInject constructor(
         baseBookingView?.syncSelectedVehicleToShareViewModel(vehicle)
     }
 
-     fun onSyncParkingDetailFromShareViewModel(parkingDetailDataStore: ParkingDetailDataStore?) {
+    fun onSyncParkingDetailFromShareViewModel(parkingDetailDataStore: ParkingDetailDataStore?) {
         bookingItemsInternal.filterIsInstance<BookingItems.BookingParkingDetail>().map {
             if (parkingDetailDataStore != null) it.parkingDetail = parkingDetailDataStore
         }
@@ -84,9 +102,25 @@ class BookingViewModel @ViewModelInject constructor(
     }
 
     fun onSyncSelectedVehicleFromShareViewModel(vehicle: Vehicle?) {
+        _selectedVehicle.value = vehicle
         bookingItemsInternal.filterIsInstance<BookingItems.BookingVehicle>().map {
             it.vehicle = vehicle
         }
         _bookingItems.postValue(bookingItemsInternal)
+    }
+
+    fun booking() {
+        _userUID.value?.let {
+            val request = Booking.createFrom(
+                it, findParkingDateTime, _selectedVehicle.value
+            )
+            firebaseFirestore.collection(COLLECTION_BOOKING_LIST).add(request)
+                .addOnSuccessListener {
+                    bookingView?.goToMyParking()
+                }
+                .addOnFailureListener {
+                    throw it
+                }
+        }
     }
 }

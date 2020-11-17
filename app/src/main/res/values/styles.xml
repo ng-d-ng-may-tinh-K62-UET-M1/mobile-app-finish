@@ -6,6 +6,8 @@
     <item name="colorOnPrimary">@color/ui_light</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="android:windowBackground">@color/backgroundPrimary</item>
+    <item name="colorAccent">@color/colorPrimary</item>
+    <item name="android:statusBarColor">@color/colorPrimary</item>
 <!--    <item name="colorAccent">@color/colorAccent</item>-->
   </style>
 

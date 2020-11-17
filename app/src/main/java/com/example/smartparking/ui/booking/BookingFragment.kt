@@ -25,7 +25,7 @@ class BookingFragment : BaseBookingFragment(), BookingView, BookingController.Bo
         super.onCreate(savedInstanceState)
         bookingSharedViewModel.reset()
         arguments?.let { BookingFragmentArgs.fromBundle(it) }?.let {
-            bookingViewModel.setData(it.findParkingRequest, it.parking)
+            bookingViewModel.setData(it.findParkingRequest, it.parking, it.findParkingDateTime)
         }
     }
 
@@ -44,6 +44,7 @@ class BookingFragment : BaseBookingFragment(), BookingView, BookingController.Bo
     }
 
     override fun onDestroyView() {
+        bookingController.callbacks = null
         binding.items.clear()
         super.onDestroyView()
     }
@@ -62,6 +63,10 @@ class BookingFragment : BaseBookingFragment(), BookingView, BookingController.Bo
 
     override fun goBack() {
         findNavController().navigateUp()
+    }
+
+    override fun goToMyParking() {
+        findNavController().navigate(BookingFragmentDirections.actionBookingFragmentToMyParkingFragment())
     }
 
     override fun goToSelectVehicle() {

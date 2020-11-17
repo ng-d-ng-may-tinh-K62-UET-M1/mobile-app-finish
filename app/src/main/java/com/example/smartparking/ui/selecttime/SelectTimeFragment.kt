@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.smartparking.data.request.FindParkingDateTime
 import com.example.smartparking.data.request.FindParkingRequest
 import com.example.smartparking.data.response.FindParkingResponse
 import com.example.smartparking.databinding.SelectTimeFragmentBinding
@@ -93,7 +94,7 @@ class SelectTimeFragment : Fragment(), SelectTimeView {
         ).show()
     }
 
-    override fun goToLocationList(findParkingRequest: FindParkingRequest?) {
-        findNavController().navigate(SelectTimeFragmentDirections.actionSelectTimeFragmentToLocationListFragment(findParkingRequest))
+    override fun goToLocationList(findParkingRequest: FindParkingRequest?, findParkingDateTime: FindParkingDateTime?) {
+        findNavController().navigate(SelectTimeFragmentDirections.actionSelectTimeFragmentToLocationListFragment(findParkingRequest, findParkingDateTime))
     }
 }

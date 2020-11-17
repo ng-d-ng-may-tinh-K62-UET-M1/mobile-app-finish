@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.smartparking.data.request.FindParkingDateTime
 import com.example.smartparking.data.request.FindParkingRequest
 import com.example.smartparking.repositories.datasource.FindParkingDataSource
 import com.example.smartparking.utils.Resource
@@ -50,7 +51,11 @@ class SelectTimeViewModel @ViewModelInject constructor(
             timeIn = formatCalenderRequest(startDate),
             timeOut = formatCalenderRequest(endDate)
         )
-        selectTimeView?.goToLocationList(request)
+        val findParkingDateTime = FindParkingDateTime(
+            timeIn = startDate.time,
+            timeOut = endDate.time
+        )
+        selectTimeView?.goToLocationList(request, findParkingDateTime)
     }
 
     private fun setTimeToStartOfDay(date: Calendar) {

@@ -43,6 +43,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/margin_padding_12"
             android:layout_marginStart="@dimen/margin_padding_12"
+            android:onClick="@{() -> viewmodel.booking()}"
             android:layout_marginEnd="@dimen/margin_padding_12"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
