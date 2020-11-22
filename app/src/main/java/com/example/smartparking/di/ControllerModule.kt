@@ -5,6 +5,7 @@ import com.example.smartparking.ui.account.paymentmethod.PaymentMethodController
 import com.example.smartparking.ui.account.vehicle.list.VehicleListController
 import com.example.smartparking.ui.booking.BookingController
 import com.example.smartparking.ui.booking.vehicles.BookingVehicleController
+import com.example.smartparking.ui.myparking.MyParkingController
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,4 +28,7 @@ object ControllerModule {
 
     @Provides
     fun provideBookingVehicleController() = BookingVehicleController()
+
+    @Provides
+    fun provideMyParkingController() = MyParkingController()
 }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="datastore"
+            type="com.example.smartparking.ui.myparking.MyParkingDataStore" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ui_light"
+        android:paddingHorizontal="@dimen/margin_padding_16"
+        android:paddingVertical="@dimen/margin_padding_6">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/license_plate_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/BodyTextPlateInImage"
+            app:autoSizeTextType="uniform"
+            android:text="@{datastore.plateNumber}"
+            app:layout_constraintBottom_toBottomOf="@id/image"
+            app:layout_constraintEnd_toEndOf="@+id/image"
+            app:layout_constraintStart_toStartOf="@id/image"
+            app:layout_constraintTop_toTopOf="@id/image"
+            tools:text="29a-999999" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/timeIn"
+            style="@style/BodyText13Bold"
+            android:layout_marginStart="@dimen/margin_padding_16"
+            app:layout_constraintStart_toEndOf="@id/image"
+            tools:text="20-11-2020"
+            android:text="@{datastore.timeIn}"
+            app:layout_constraintTop_toTopOf="@id/image" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BodyText13Bold"
+            android:id="@+id/timeOut"
+            android:text="@{datastore.timeOut}"
+            android:layout_marginStart="@dimen/margin_padding_16"
+            app:layout_constraintStart_toEndOf="@id/image"
+            tools:text="20-11-2020"
+            app:layout_constraintBottom_toBottomOf="@id/image"/>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{datastore.statusName}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Pending"
+            style="@style/BodyText13"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -24,6 +24,7 @@
     <string name="header_edit_vehicle">EDIT VEHICLE</string>
     <string name="header_payment_method">PAYMENT METHOD</string>
     <string name="header_booking">BOOKING</string>
+    <string name="header_my_parking">MY PARKING</string>
 
     <string name="account_sign_in_as">you are signed in as</string>
     <string name="account_sign_out">sign out</string>
@@ -53,5 +54,7 @@ quickly complete bookings</string>
     
     <string name="booking_reservation_details">Reservation Details</string>
     <string name="booking_select_vehicle">Select Vehicle</string>
+
+    <string name="parking_my_reservation_schedule">My reservation schedule</string>
 
 </resources>

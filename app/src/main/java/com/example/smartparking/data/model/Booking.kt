@@ -11,7 +11,7 @@ import java.util.*
 @Parcelize
 data class Booking(
     @DocumentId
-    var documentId: String? = null,
+    val documentId: String? = null,
 
     @get:PropertyName("uid")
     @set:PropertyName("uid")

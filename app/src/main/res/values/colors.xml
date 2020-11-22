@@ -23,4 +23,9 @@
   <color name="ui_border">#e0e0e0</color>
   <color name="ui_placeholder">#b4b4b4</color>
   <color name="ui_error">#eb2101</color>
+
+  <color name="status_pending">#FFFF00</color>
+  <color name="status_active">#00FF6A</color>
+  <color name="status_done">#0064FF</color>
+  <color name="status_outdated">#FF0000</color>
 </resources>
